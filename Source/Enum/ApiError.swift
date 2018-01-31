@@ -9,9 +9,15 @@
 import Foundation
 
 public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertible {
+	
+	/// Reponse is not JSON/HTTP etc
 	case incorrectResponse
+	
+	/// Unable to parse JSON reply from API
 	case parseFailed(error: Error)
-	case error(code: Int, description: String?)
+	
+	/// Used when API returns errors
+	case error(descriptions: [String])
 	
 	public var localizedDescription: String { return self.description }
 	
@@ -19,7 +25,7 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 		switch self {
 		case .incorrectResponse: return "Incorrect API Response"
 		case .parseFailed: return "Failed to parse API response"
-		case .error(let code): return "API error \(code)"
+		case .error: return "API returned some errors"
 		}
 	}
 	
@@ -27,11 +33,8 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 		switch self {
 		case .incorrectResponse: return description
 		case .parseFailed(let error): return "Failed to parse API response: \(error)"
-		case .error(let code, let description):
-			var output = "API error \(code)"
-			if let description = description {
-				output += ": \(description)"
-			}
+		case .error(let descriptions):
+			let output = "API returned errors: " + descriptions.joined(separator: ", ")
 			return output
 		}
 	}
