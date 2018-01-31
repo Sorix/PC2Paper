@@ -12,12 +12,25 @@ public struct SendSubmitLetterForPostingRequestBody: RequestBody {
 	
 	public struct Letter: Encodable {
 		
+		// MARK: Reciver Address
+		
 		public struct Address: Encodable {
+
+			enum CodingKeys: String, CodingKey {
+				case name = "ReceiverName"
+				case addressLine1 = "ReceiverAddressLine1"
+				case addressLine2 = "ReceiverAddressLine2"
+				case townCity = "ReceiverAddressTownCityOrLine3"
+				case postCode = "ReceiverAddressPostCode"
+			}
+			
 			public var name, addressLine1, addressLine2, townCity, postCode: String?
 			public init() { }
 		}
 		
-		public struct Sender: Encodable {
+		// MARK: Sender
+		
+		public struct Sender {
 			
 			/// This is your return address. Each line can be seperated by a line break.
 			public var address: String
@@ -30,6 +43,8 @@ public struct SendSubmitLetterForPostingRequestBody: RequestBody {
 			}
 			
 		}
+		
+		// MARK: Letter body
 		
 		/// This is the name of your application so we can identify it if PC2Paper find any problems
 		public var sourceClient: String
@@ -53,6 +68,8 @@ public struct SendSubmitLetterForPostingRequestBody: RequestBody {
 		
 		/// This is where you can write your letter. It can be formated HTMl or left blank if you would rather just attach a PDF to your letter. You can also have both options at once.
 		public var letterBody: String?
+		
+		public var sender: Sender?
 		
 		/// This is your own reference number that be used for your own tracking purposes or admin. Perhaps from you rown CRM system.
 		public var yourRef: String?
@@ -87,6 +104,46 @@ extension SendSubmitLetterForPostingRequestBody.Letter {
 		self.paper = paper
 		self.envelope = envelope
 		self.extras = extras
+	}
+	
+}
+
+// Letter Encodable
+
+extension SendSubmitLetterForPostingRequestBody.Letter {
+	
+	enum CodingKeys: String, CodingKey {
+		case sourceClient = "SourceClient"
+		case addresses = "Addresses"
+		case receiverCountryCode = "ReceiverCountryCode"
+		case postage = "Postage"
+		case paper = "Paper"
+		case envelope = "Envelope"
+		case extras = "Extras"
+		case letterBody = "LetterBody"
+		case yourRef = "YourRef"
+		case fileAttachementGUIDs = "FileAttachementGUIDs"
+		
+		case senderAddress = "SenderAddress"
+		case includeSenderAddressOnEnvelope = "IncludeSenderAddressOnEnvelope"
+	}
+	
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(sourceClient, forKey: .sourceClient)
+		try container.encode(addresses, forKey: .addresses)
+		try container.encode(receiverCountryCode, forKey: .receiverCountryCode)
+		try container.encode(postage, forKey: .postage)
+		try container.encode(paper, forKey: .paper)
+		try container.encode(envelope, forKey: .envelope)
+		try container.encode(extras, forKey: .extras)
+		try container.encode(letterBody, forKey: .letterBody)
+		try container.encode(yourRef, forKey: .yourRef)
+		try container.encode(fileAttachementGUIDs, forKey: .fileAttachementGUIDs)
+		
+		try container.encodeIfPresent(sender?.address, forKey: .senderAddress)
+		try container.encodeIfPresent(sender?.includeSenderAddressOnEnvelope, forKey: .includeSenderAddressOnEnvelope)
 	}
 	
 }

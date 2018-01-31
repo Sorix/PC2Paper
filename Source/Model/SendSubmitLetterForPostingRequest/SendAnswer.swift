@@ -33,9 +33,9 @@ import Foundation
 
 public struct SendSubmitLetterForPostingAnswer: Answer {
 	
-	let costOfLetter: Int
+	let costOfLetter: Double
 	let errorMessages: [String]?
-	let fundsLeftInYourAccount: Int
+	let fundsLeftInYourAccount: Double
 	let letterId: String?
 	let status: String
 	
@@ -55,9 +55,9 @@ public struct SendSubmitLetterForPostingAnswer: Answer {
 		let container = try decoder.container(keyedBy: RootCodingKey.self)
 		let nestedContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .root)
 		
-		costOfLetter = try nestedContainer.decode(Int.self, forKey: .costOfLetter)
+		costOfLetter = try nestedContainer.decode(Double.self, forKey: .costOfLetter)
 		errorMessages = try nestedContainer.decodeIfPresent([String].self, forKey: .errorMessages)
-		fundsLeftInYourAccount = try nestedContainer.decode(Int.self, forKey: .fundsLeftInYourAccount)
+		fundsLeftInYourAccount = try nestedContainer.decode(Double.self, forKey: .fundsLeftInYourAccount)
 		letterId = try nestedContainer.decodeIfPresent(String.self, forKey: .letterId)
 		status = try nestedContainer.decode(String.self, forKey: .status)
 	}
