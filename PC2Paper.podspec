@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "PC2Paper"
-  s.summary          = ""
+  s.summary          = "PC2Paper API client"
   s.version          = "0.1"
   s.homepage         = "https://github.com/sorix/PC2Paper"
   s.license          = 'MIT'

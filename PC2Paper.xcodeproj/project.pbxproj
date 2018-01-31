@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		E2CE35EF2021CDF100F7950D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2CE35EE2021CDF100F7950D /* Info.plist */; };
+		E2CE35F12021CECC00F7950D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35F02021CECC00F7950D /* Request.swift */; };
+		E2CE35F32021CEDF00F7950D /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35F22021CEDF00F7950D /* Answer.swift */; };
+		E2CE35F72021CF4E00F7950D /* SendSubmitLetterForPosting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35F62021CF4E00F7950D /* SendSubmitLetterForPosting.swift */; };
+		E2CE35FA2021CFAA00F7950D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35F92021CFAA00F7950D /* HTTPMethod.swift */; };
+		E2CE35FE2021D5EC00F7950D /* PC2Paper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35FD2021D5EC00F7950D /* PC2Paper.swift */; };
+		E2CE36002021D6DA00F7950D /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35FF2021D6DA00F7950D /* ApiError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -15,6 +21,12 @@
 		D9B3C7331FCEFD9100CDB7FF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		E22C40441E4291FB009469A1 /* PC2Paper.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = PC2Paper.podspec; sourceTree = "<group>"; };
 		E2CE35EE2021CDF100F7950D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2CE35F02021CECC00F7950D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		E2CE35F22021CEDF00F7950D /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		E2CE35F62021CF4E00F7950D /* SendSubmitLetterForPosting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSubmitLetterForPosting.swift; sourceTree = "<group>"; };
+		E2CE35F92021CFAA00F7950D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		E2CE35FD2021D5EC00F7950D /* PC2Paper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PC2Paper.swift; sourceTree = "<group>"; };
+		E2CE35FF2021D6DA00F7950D /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +61,11 @@
 		D5C629691C3A809D007F7B7C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E2CE35F82021CFA300F7950D /* Enum */,
+				E2CE35F52021CF1F00F7950D /* Model */,
+				E2CE35F42021CEE400F7950D /* Protocol */,
 				E2CE35ED2021CDE700F7950D /* Resources */,
+				E2CE35FD2021D5EC00F7950D /* PC2Paper.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -68,6 +84,32 @@
 				E2CE35EE2021CDF100F7950D /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E2CE35F42021CEE400F7950D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E2CE35F02021CECC00F7950D /* Request.swift */,
+				E2CE35F22021CEDF00F7950D /* Answer.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		E2CE35F52021CF1F00F7950D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2CE35F62021CF4E00F7950D /* SendSubmitLetterForPosting.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E2CE35F82021CFA300F7950D /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				E2CE35F92021CFAA00F7950D /* HTTPMethod.swift */,
+				E2CE35FF2021D6DA00F7950D /* ApiError.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,7 +155,7 @@
 				TargetAttributes = {
 					D5B2E89E1C3A780C00C0327D = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -152,6 +194,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2CE36002021D6DA00F7950D /* ApiError.swift in Sources */,
+				E2CE35FA2021CFAA00F7950D /* HTTPMethod.swift in Sources */,
+				E2CE35F12021CECC00F7950D /* Request.swift in Sources */,
+				E2CE35F72021CF4E00F7950D /* SendSubmitLetterForPosting.swift in Sources */,
+				E2CE35FE2021D5EC00F7950D /* PC2Paper.swift in Sources */,
+				E2CE35F32021CEDF00F7950D /* Answer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
