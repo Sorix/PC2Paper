@@ -39,6 +39,8 @@ public struct SendSubmitLetterForPostingAnswer: Answer {
 	let letterId: String?
 	let status: String
 	
+	// MARK: Decodable
+	
 	private enum CodingKeys: String, CodingKey {
 		case costOfLetter = "CostOfLetter"
 		case errorMessages = "ErrorMessages"

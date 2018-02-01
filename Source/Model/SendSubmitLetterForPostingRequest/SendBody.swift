@@ -112,6 +112,8 @@ extension SendSubmitLetterForPostingRequestBody.Letter {
 
 extension SendSubmitLetterForPostingRequestBody.Letter {
 	
+	// MARK: Encodable
+	
 	enum CodingKeys: String, CodingKey {
 		case sourceClient = "SourceClient"
 		case addresses = "Addresses"

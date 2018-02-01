@@ -18,6 +18,7 @@
 		E2E7026920227AB700D50697 /* SendBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026620227AB700D50697 /* SendBody.swift */; };
 		E2E7026B20227FC400D50697 /* ErrorAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026A20227FC400D50697 /* ErrorAnswer.swift */; };
 		E2E7026D2022818600D50697 /* StatusAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026C2022818600D50697 /* StatusAnswer.swift */; };
+		E2E7027020231D8500D50697 /* UploadDocumentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026F20231D8500D50697 /* UploadDocumentRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E2E7026620227AB700D50697 /* SendBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendBody.swift; sourceTree = "<group>"; };
 		E2E7026A20227FC400D50697 /* ErrorAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAnswer.swift; sourceTree = "<group>"; };
 		E2E7026C2022818600D50697 /* StatusAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusAnswer.swift; sourceTree = "<group>"; };
+		E2E7026F20231D8500D50697 /* UploadDocumentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		E2CE35F52021CF1F00F7950D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E2E7026E20231D7800D50697 /* UploadDocument */,
 				E2C285A52021E5E100BD6A12 /* SendSubmitLetterForPostingRequest */,
 				E2E7026A20227FC400D50697 /* ErrorAnswer.swift */,
 				E2E7026C2022818600D50697 /* StatusAnswer.swift */,
@@ -132,6 +135,14 @@
 				E2C285A32021E2B000BD6A12 /* Result.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		E2E7026E20231D7800D50697 /* UploadDocument */ = {
+			isa = PBXGroup;
+			children = (
+				E2E7026F20231D8500D50697 /* UploadDocumentRequest.swift */,
+			);
+			path = UploadDocument;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +237,7 @@
 				E2CE35FE2021D5EC00F7950D /* PC2Paper.swift in Sources */,
 				E2CE35F32021CEDF00F7950D /* Answer.swift in Sources */,
 				E2E7026820227AB700D50697 /* SendAnswer.swift in Sources */,
+				E2E7027020231D8500D50697 /* UploadDocumentRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

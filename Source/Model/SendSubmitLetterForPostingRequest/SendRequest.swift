@@ -24,5 +24,3 @@ public struct SendSubmitLetterForPostingRequest: Request {
 	}
 	
 }
-
-
