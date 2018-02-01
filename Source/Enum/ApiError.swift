@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+/// Errors that can by thrown by PC2Paper framework
 public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertible {
 	
 	/// Reponse is not JSON/HTTP etc
@@ -16,11 +18,15 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 	/// Unable to parse JSON reply from API
 	case parseFailed(error: Error)
 	
-	/// Used when API returns errors
+	/// Used when request was successfull, but API returned errors
 	case error(descriptions: [String])
 	
+	// MARK: - Variables
+	
+	/// Alias of `description`
 	public var localizedDescription: String { return self.description }
 	
+	/// Short description of error without any detailed information
 	public var description: String {
 		switch self {
 		case .incorrectResponse: return "Incorrect API Response"
@@ -29,6 +35,7 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 		}
 	}
 	
+	/// Full error's description, may disclose private data
 	public var debugDescription: String {
 		switch self {
 		case .incorrectResponse: return description
