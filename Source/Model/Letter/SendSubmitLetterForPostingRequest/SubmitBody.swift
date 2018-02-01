@@ -8,43 +8,33 @@
 
 import Foundation
 
-public struct SendSubmitLetterForPostingRequestBody: RequestBody {
-	
-	public struct Letter: Encodable {
-		
-		// MARK: Reciver Address
-		
-		public struct Address: Encodable {
+/// Body with letter information
+public struct SubmitLetterForPostingRequestBody: RequestBody {
 
-			enum CodingKeys: String, CodingKey {
-				case name = "ReceiverName"
-				case addressLine1 = "ReceiverAddressLine1"
-				case addressLine2 = "ReceiverAddressLine2"
-				case townCity = "ReceiverAddressTownCityOrLine3"
-				case postCode = "ReceiverAddressPostCode"
-			}
-			
-			public var name, addressLine1, addressLine2, townCity, postCode: String?
-			public init() { }
-		}
-		
-		// MARK: Sender
-		
-		public struct Sender {
-			
-			/// This is your return address. Each line can be seperated by a line break.
-			public var address: String
-			
-			/// This tells the site that you wish to have this placed on the enevelope
-			public var includeSenderAddressOnEnvelope: Bool = false
-			
-			public init(address: String) {
-				self.address = address
-			}
-			
-		}
-		
-		// MARK: Letter body
+	public var letterForPosting: Letter
+	
+	/// Your PC2Paper username
+	public var username: String
+	
+	/// Your PC2Paper password
+	public var password: String
+	
+	// MARK: Initializing an Item
+	
+	public init(letter: Letter, username: String, password: String) {
+		self.letterForPosting = letter
+		self.username = username
+		self.password = password
+	}
+	
+}
+
+extension SubmitLetterForPostingRequestBody {
+	
+	// MARK: - Models
+	
+	/// Letter body
+	public struct Letter: Encodable {
 		
 		/// This is the name of your application so we can identify it if PC2Paper find any problems
 		public var sourceClient: String
@@ -69,48 +59,75 @@ public struct SendSubmitLetterForPostingRequestBody: RequestBody {
 		/// This is where you can write your letter. It can be formated HTMl or left blank if you would rather just attach a PDF to your letter. You can also have both options at once.
 		public var letterBody: String?
 		
+		/// Look at `Sender` struct
 		public var sender: Sender?
 		
 		/// This is your own reference number that be used for your own tracking purposes or admin. Perhaps from you rown CRM system.
 		public var yourRef: String?
 		
-		/// If you have uploaded your PDF files, you will be provided with a FileCreatedGUID for each file you upload, attach it here
+		/// If you have uploaded your PDF files, you will be provided with a `UploadDocumentRequest` for each file you upload, attach it here
 		public var fileAttachementGUIDs: [String]?
+	
+		// MARK: Initializing an Item
 		
-	}
-	
-	public var letterForPosting: Letter
-	public var username: String
-	public var password: String
-	
-	public init(letter: Letter, username: String, password: String) {
-		self.letterForPosting = letter
-		self.username = username
-		self.password = password
+		public init(sourceClient: String, addresses: [Address], receiverCountryCode: Int, postage: Int, paper: Int, envelope: Int, extras: Int) {
+			self.sourceClient = sourceClient
+			self.addresses = addresses
+			self.receiverCountryCode = receiverCountryCode
+			self.postage = postage
+			self.paper = paper
+			self.envelope = envelope
+			self.extras = extras
+		}
+		
 	}
 	
 }
 
+extension SubmitLetterForPostingRequestBody.Letter {
 
-// Letter initializer
-extension SendSubmitLetterForPostingRequestBody.Letter {
+	// MARK: Models
 	
-	/// Description of fields you can find at `SendSubmitLetterForPostingRequestBody.Letter` struct
-	public init(sourceClient: String, addresses: [Address], receiverCountryCode: Int, postage: Int, paper: Int, envelope: Int, extras: Int) {
-		self.sourceClient = sourceClient
-		self.addresses = addresses
-		self.receiverCountryCode = receiverCountryCode
-		self.postage = postage
-		self.paper = paper
-		self.envelope = envelope
-		self.extras = extras
+	public struct Address: Encodable {
+		
+		enum CodingKeys: String, CodingKey {
+			case name = "ReceiverName"
+			case addressLine1 = "ReceiverAddressLine1"
+			case addressLine2 = "ReceiverAddressLine2"
+			case townCity = "ReceiverAddressTownCityOrLine3"
+			case postCode = "ReceiverAddressPostCode"
+		}
+		
+		public var name: String?
+		public var addressLine1: String?
+		public var addressLine2: String?
+		public var townCity: String?
+		public var postCode: String?
+		
+		// MARK: Initializing an Item
+		
+		public init() { }
+	}
+	
+	public struct Sender {
+		
+		/// This is your return address. Each line can be seperated by a line break.
+		public var address: String
+		
+		/// This tells the site that you wish to have this placed on the enevelope
+		public var includeSenderAddressOnEnvelope: Bool = false
+		
+		public init(address: String) {
+			self.address = address
+		}
+		
 	}
 	
 }
 
 // Letter Encodable
 
-extension SendSubmitLetterForPostingRequestBody.Letter {
+extension SubmitLetterForPostingRequestBody.Letter {
 	
 	// MARK: Encodable
 	

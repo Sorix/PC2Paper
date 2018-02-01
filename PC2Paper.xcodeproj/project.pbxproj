@@ -13,12 +13,13 @@
 		E2CE35FA2021CFAA00F7950D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35F92021CFAA00F7950D /* HTTPMethod.swift */; };
 		E2CE35FE2021D5EC00F7950D /* PC2Paper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35FD2021D5EC00F7950D /* PC2Paper.swift */; };
 		E2CE36002021D6DA00F7950D /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35FF2021D6DA00F7950D /* ApiError.swift */; };
-		E2E7026720227AB700D50697 /* SendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026420227AB700D50697 /* SendRequest.swift */; };
-		E2E7026820227AB700D50697 /* SendAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026520227AB700D50697 /* SendAnswer.swift */; };
-		E2E7026920227AB700D50697 /* SendBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026620227AB700D50697 /* SendBody.swift */; };
+		E2E7026720227AB700D50697 /* SubmitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026420227AB700D50697 /* SubmitRequest.swift */; };
+		E2E7026820227AB700D50697 /* SubmitAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026520227AB700D50697 /* SubmitAnswer.swift */; };
+		E2E7026920227AB700D50697 /* SubmitBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026620227AB700D50697 /* SubmitBody.swift */; };
 		E2E7026B20227FC400D50697 /* ErrorAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026A20227FC400D50697 /* ErrorAnswer.swift */; };
 		E2E7026D2022818600D50697 /* StatusAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026C2022818600D50697 /* StatusAnswer.swift */; };
 		E2E7027020231D8500D50697 /* UploadDocumentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026F20231D8500D50697 /* UploadDocumentRequest.swift */; };
+		E2E702742023273600D50697 /* ZonesLetterCanBeSentFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E702732023273600D50697 /* ZonesLetterCanBeSentFrom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +33,13 @@
 		E2CE35F92021CFAA00F7950D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		E2CE35FD2021D5EC00F7950D /* PC2Paper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PC2Paper.swift; sourceTree = "<group>"; };
 		E2CE35FF2021D6DA00F7950D /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
-		E2E7026420227AB700D50697 /* SendRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendRequest.swift; sourceTree = "<group>"; };
-		E2E7026520227AB700D50697 /* SendAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendAnswer.swift; sourceTree = "<group>"; };
-		E2E7026620227AB700D50697 /* SendBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendBody.swift; sourceTree = "<group>"; };
+		E2E7026420227AB700D50697 /* SubmitRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitRequest.swift; sourceTree = "<group>"; };
+		E2E7026520227AB700D50697 /* SubmitAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitAnswer.swift; sourceTree = "<group>"; };
+		E2E7026620227AB700D50697 /* SubmitBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitBody.swift; sourceTree = "<group>"; };
 		E2E7026A20227FC400D50697 /* ErrorAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAnswer.swift; sourceTree = "<group>"; };
 		E2E7026C2022818600D50697 /* StatusAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusAnswer.swift; sourceTree = "<group>"; };
 		E2E7026F20231D8500D50697 /* UploadDocumentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentRequest.swift; sourceTree = "<group>"; };
+		E2E702732023273600D50697 /* ZonesLetterCanBeSentFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonesLetterCanBeSentFrom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +94,9 @@
 		E2C285A52021E5E100BD6A12 /* SendSubmitLetterForPostingRequest */ = {
 			isa = PBXGroup;
 			children = (
-				E2E7026420227AB700D50697 /* SendRequest.swift */,
-				E2E7026620227AB700D50697 /* SendBody.swift */,
-				E2E7026520227AB700D50697 /* SendAnswer.swift */,
+				E2E7026420227AB700D50697 /* SubmitRequest.swift */,
+				E2E7026620227AB700D50697 /* SubmitBody.swift */,
+				E2E7026520227AB700D50697 /* SubmitAnswer.swift */,
 			);
 			path = SendSubmitLetterForPostingRequest;
 			sourceTree = "<group>";
@@ -119,10 +121,8 @@
 		E2CE35F52021CF1F00F7950D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E2E7026E20231D7800D50697 /* UploadDocument */,
-				E2C285A52021E5E100BD6A12 /* SendSubmitLetterForPostingRequest */,
-				E2E7026A20227FC400D50697 /* ErrorAnswer.swift */,
-				E2E7026C2022818600D50697 /* StatusAnswer.swift */,
+				E2E702722023271600D50697 /* LetterPricing */,
+				E2E702712023270D00D50697 /* Letter */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +143,25 @@
 				E2E7026F20231D8500D50697 /* UploadDocumentRequest.swift */,
 			);
 			path = UploadDocument;
+			sourceTree = "<group>";
+		};
+		E2E702712023270D00D50697 /* Letter */ = {
+			isa = PBXGroup;
+			children = (
+				E2E7026E20231D7800D50697 /* UploadDocument */,
+				E2C285A52021E5E100BD6A12 /* SendSubmitLetterForPostingRequest */,
+				E2E7026A20227FC400D50697 /* ErrorAnswer.swift */,
+				E2E7026C2022818600D50697 /* StatusAnswer.swift */,
+			);
+			path = Letter;
+			sourceTree = "<group>";
+		};
+		E2E702722023271600D50697 /* LetterPricing */ = {
+			isa = PBXGroup;
+			children = (
+				E2E702732023273600D50697 /* ZonesLetterCanBeSentFrom.swift */,
+			);
+			path = LetterPricing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,13 +249,14 @@
 				E2CE36002021D6DA00F7950D /* ApiError.swift in Sources */,
 				E2CE35FA2021CFAA00F7950D /* HTTPMethod.swift in Sources */,
 				E2CE35F12021CECC00F7950D /* Request.swift in Sources */,
-				E2E7026920227AB700D50697 /* SendBody.swift in Sources */,
+				E2E7026920227AB700D50697 /* SubmitBody.swift in Sources */,
 				E2E7026D2022818600D50697 /* StatusAnswer.swift in Sources */,
 				E2C285A42021E2B000BD6A12 /* Result.swift in Sources */,
-				E2E7026720227AB700D50697 /* SendRequest.swift in Sources */,
+				E2E702742023273600D50697 /* ZonesLetterCanBeSentFrom.swift in Sources */,
+				E2E7026720227AB700D50697 /* SubmitRequest.swift in Sources */,
 				E2CE35FE2021D5EC00F7950D /* PC2Paper.swift in Sources */,
 				E2CE35F32021CEDF00F7950D /* Answer.swift in Sources */,
-				E2E7026820227AB700D50697 /* SendAnswer.swift in Sources */,
+				E2E7026820227AB700D50697 /* SubmitAnswer.swift in Sources */,
 				E2E7027020231D8500D50697 /* UploadDocumentRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

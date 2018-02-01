@@ -31,7 +31,8 @@
 
 import Foundation
 
-public struct SendSubmitLetterForPostingAnswer: Answer {
+/// Result of letter submit request
+public struct SubmitLetterForPostingAnswer: Answer {
 	
 	let costOfLetter: Double
 	let errorMessages: [String]?

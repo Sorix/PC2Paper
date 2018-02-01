@@ -9,17 +9,18 @@
 
 import Foundation
 
-public struct SendSubmitLetterForPostingRequest: Request {
+/// Send letter request
+public struct SubmitLetterForPostingRequest: Request {
 	
-	public typealias AnswerModel = SendSubmitLetterForPostingAnswer
-	public typealias BodyModel = SendSubmitLetterForPostingRequestBody
+	public typealias AnswerModel = SubmitLetterForPostingAnswer
+	public typealias BodyModel = SubmitLetterForPostingRequestBody
 	
 	public let httpMethod: HTTPMethod = .POST
-	public let requestString = "SendSubmitLetterForPosting"
+	public let requestString = "lettercustomerapi.svc/json/SendSubmitLetterForPosting"
 	
 	public var body: BodyModel?
 	
-	public init(body: SendSubmitLetterForPostingRequestBody) {
+	public init(body: SubmitLetterForPostingRequestBody) {
 		self.body = body
 	}
 	

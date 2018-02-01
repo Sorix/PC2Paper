@@ -10,7 +10,7 @@ import Foundation
 
 public class PC2Paper {
 	
-	private let endpoint = URL(string: "https://www.pc2paper.co.uk/lettercustomerapi.svc/json/")!
+	private let endpoint = URL(string: "https://www.pc2paper.co.uk/")!
 	
 	public init() {}
 	

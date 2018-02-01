@@ -1,0 +1,13 @@
+theme: fullwidth
+abstract: Documentation/*.md
+custom_categories:
+  - name: Submit Letter
+    children:
+      - SubmitLetterForPostingRequest
+      - SubmitLetterForPostingRequestBody
+      - SubmitLetterForPostingAnswer
+  - name: Upload Document
+    children:
+      - UploadDocumentRequest
+      - UploadDocumentRequestBody
+      - UploadDocumentAnswer
