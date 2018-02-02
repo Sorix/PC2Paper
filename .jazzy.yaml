@@ -1,6 +1,10 @@
 theme: fullwidth
 abstract: Documentation/*.md
 custom_categories:
+  - name: Postage Options
+    children:
+      - ZonesLetterCanBeSentFromRequest
+      - ZonesLetterCanBeSentFromAnswer
   - name: Submit Letter
     children:
       - SubmitLetterForPostingRequest

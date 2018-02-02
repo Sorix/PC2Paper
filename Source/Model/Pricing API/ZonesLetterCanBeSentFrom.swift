@@ -16,6 +16,7 @@ public struct ZonesLetterCanBeSentFromRequest: PricingAPIRequest, _PricingAPIReq
 	var requestString: String {
 		return "datagetpostage.asp?method=getZonesLetterCanBeSentFrom&str=" + String(countryCode) }
 	
+	/// The country code we wish to receive available pricing for
 	public var countryCode: Int
 	
 	public init(countryCode: Int) {
@@ -26,12 +27,18 @@ public struct ZonesLetterCanBeSentFromRequest: PricingAPIRequest, _PricingAPIReq
 
 public struct ZonesLetterCanBeSentFromAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	
-	struct Zone {
+	/// PC2Paper represents each postage option as a Zone.
+	public struct Zone {
+		
+		/// Zone ID, store it for future API calls
 		let id: Int
+		
+		/// Example: `UK Signed For 1st class`
 		let postageClass: String
+		
 	}
 	
-	let zones: [Zone]
+	public let zones: [Zone]
 	
 	init(from data: Data) throws {
 		let xml = SWXMLHash.parse(data)
