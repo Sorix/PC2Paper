@@ -28,8 +28,6 @@ public class PricingAPI {
 		var urlRequest = URLRequest(url: url)
 		urlRequest.httpMethod = "GET"
 		
-		print(url)
-		
 		// Start session
 		let session = URLSession(configuration: sessionConfig)
 		

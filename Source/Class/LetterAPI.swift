@@ -16,10 +16,14 @@ public class LetterAPI {
 	
 	public func make<RequestModel: LetterAPIRequest>(request: RequestModel, sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default, completion: @escaping (Result<RequestModel.AnswerModel>) -> Void) {
 		
+		guard let internalRequest = request as? _LetterAPIRequest else {
+			completion(.failed(ApiError.unexpectedError)); return
+		}
+		
 		// Make URL Request
-		let url = endpoint.appendingPathComponent(request.requestString)
+		let url = endpoint.appendingPathComponent(internalRequest.requestString)
 		var urlRequest = URLRequest(url: url)
-		urlRequest.httpMethod = request.httpMethod.rawValue
+		urlRequest.httpMethod = internalRequest.httpMethod.rawValue
 		
 		if let body = request.body {
 			do {

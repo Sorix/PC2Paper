@@ -9,13 +9,13 @@
 import Foundation
 
 /// If you'd like to include PDF's as attachment's to your letter, you can upload these and use the unique id's the website gives you to attach them to your letter.
-public struct UploadDocumentRequest: LetterAPIRequest {
+public struct UploadDocumentRequest: LetterAPIRequest, _LetterAPIRequest {
 	
 	public typealias AnswerModel = UploadDocumentAnswer
 	public typealias BodyModel = UploadDocumentRequestBody
 	
-	public let httpMethod: HTTPMethod = .POST
-	public let requestString = "UploadDocument"
+	let httpMethod: HTTPMethod = .POST
+	let requestString = "UploadDocument"
 	
 	public var body: BodyModel?
 	

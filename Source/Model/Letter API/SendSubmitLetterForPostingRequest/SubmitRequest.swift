@@ -10,13 +10,13 @@
 import Foundation
 
 /// Send letter request
-public struct SubmitLetterForPostingRequest: LetterAPIRequest {
+public struct SubmitLetterForPostingRequest: LetterAPIRequest, _LetterAPIRequest {
 	
 	public typealias AnswerModel = SubmitLetterForPostingAnswer
 	public typealias BodyModel = SubmitLetterForPostingRequestBody
 	
-	public let httpMethod: HTTPMethod = .POST
-	public let requestString = "lettercustomerapi.svc/json/SendSubmitLetterForPosting"
+	let httpMethod: HTTPMethod = .POST
+	let requestString = "lettercustomerapi.svc/json/SendSubmitLetterForPosting"
 	
 	public var body: BodyModel?
 	

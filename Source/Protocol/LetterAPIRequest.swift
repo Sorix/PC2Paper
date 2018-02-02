@@ -12,10 +12,12 @@ public protocol LetterAPIRequest {
 	associatedtype AnswerModel: LetterAPIAnswer
 	associatedtype BodyModel: RequestBody
 	
+	var body: BodyModel? { get }
+}
+
+internal protocol _LetterAPIRequest {
 	var httpMethod: HTTPMethod { get }
 	var requestString: String { get }
-	
-	var body: BodyModel? { get }
 }
 
 public protocol RequestBody: Encodable { }
