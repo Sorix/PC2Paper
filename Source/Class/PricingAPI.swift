@@ -47,7 +47,7 @@ public class PricingAPI {
 				completion(.failed(ApiError.unexpectedError))
 				return
 			}
-			
+
 			// Correct answer
 			do {
 				print("RAW Answer: \(String(data: data, encoding: .utf8))")

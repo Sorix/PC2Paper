@@ -5,11 +5,18 @@ custom_categories:
     children:
       - ZonesLetterCanBeSentFromRequest
       - ZonesLetterCanBeSentFromAnswer
+
+  - name: Zone Offers
+    children:
+      - ZoneOffersRequest
+      - ZoneOffersAnswer
+
   - name: Submit Letter
     children:
       - SubmitLetterForPostingRequest
       - SubmitLetterForPostingRequestBody
       - SubmitLetterForPostingAnswer
+
   - name: Upload Document
     children:
       - UploadDocumentRequest

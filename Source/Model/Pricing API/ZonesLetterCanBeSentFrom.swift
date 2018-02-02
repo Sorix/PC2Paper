@@ -27,18 +27,21 @@ public struct ZonesLetterCanBeSentFromRequest: PricingAPIRequest, _PricingAPIReq
 
 public struct ZonesLetterCanBeSentFromAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	
+	/// Array of zones for that country
+	public let zones: [Zone]
+	
+	// MARK: - Models
+	
 	/// PC2Paper represents each postage option as a Zone.
 	public struct Zone {
 		
 		/// Zone ID, store it for future API calls
-		let id: Int
+		public let id: Int
 		
 		/// Example: `UK Signed For 1st class`
-		let postageClass: String
+		public let postageClass: String
 		
 	}
-	
-	public let zones: [Zone]
 	
 	init(from data: Data) throws {
 		let xml = SWXMLHash.parse(data)
