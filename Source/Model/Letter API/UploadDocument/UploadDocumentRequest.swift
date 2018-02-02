@@ -61,10 +61,10 @@ public struct UploadDocumentRequestBody: RequestBody {
 
 public struct UploadDocumentAnswer: LetterAPIAnswer {
 	
-	let errorMessages: [String]?
-	let fileCreatedGUID: String?
-	let status: String
-	let pages: Int?
+	public let errorMessages: [String]?
+	public let fileCreatedGUID: String?
+	public let status: String
+	public let pages: Int?
 	
 	// MARK: Decodable
 	

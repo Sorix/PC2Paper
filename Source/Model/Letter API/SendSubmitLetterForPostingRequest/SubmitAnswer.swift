@@ -34,11 +34,11 @@ import Foundation
 /// Result of letter submit request
 public struct SubmitLetterForPostingAnswer: LetterAPIAnswer {
 	
-	let costOfLetter: Double
-	let errorMessages: [String]?
-	let fundsLeftInYourAccount: Double
-	let letterId: String?
-	let status: String
+	public let costOfLetter: Double
+	public let errorMessages: [String]?
+	public let fundsLeftInYourAccount: Double
+	public let letterId: String?
+	public let status: String
 	
 	// MARK: Decodable
 	
