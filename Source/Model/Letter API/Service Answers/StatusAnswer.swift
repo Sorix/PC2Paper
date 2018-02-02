@@ -1,5 +1,5 @@
 //
-//  ErrorAnswer.swift
+//  StatusAnswer.swift
 //  PC2Paper
 //
 //  Created by Vasily Ulianov on 01/02/2018.
@@ -8,23 +8,24 @@
 
 import Foundation
 
-struct ErrorAnswer: Answer {
+struct StatusAnswer: LetterAPIAnswer {
 	
-	let errorMessages: [String]
+	let status: String
 	
 	private enum CodingKeys: String, CodingKey {
-		case errorMessages = "ErrorMessages"
+		case status = "Status"
 	}
 	
 	private enum RootCodingKey: String, CodingKey {
 		case root = "d"
 	}
 	
-	init(from decoder: Decoder) throws {
+	public init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: RootCodingKey.self)
 		let nestedContainer = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .root)
 		
-		errorMessages = try nestedContainer.decode([String].self, forKey: .errorMessages)
+		status = try nestedContainer.decode(String.self, forKey: .status)
 	}
+	
 	
 }

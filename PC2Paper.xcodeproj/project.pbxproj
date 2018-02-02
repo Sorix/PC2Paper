@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2A2950720248F7C004337F3 /* PricingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2950620248F7C004337F3 /* PricingAPI.swift */; };
+		E2A2950A2024906A004337F3 /* PricingAPIAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A295092024906A004337F3 /* PricingAPIAnswer.swift */; };
 		E2C285A42021E2B000BD6A12 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C285A32021E2B000BD6A12 /* Result.swift */; };
 		E2CE35F12021CECC00F7950D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35F02021CECC00F7950D /* Request.swift */; };
-		E2CE35F32021CEDF00F7950D /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35F22021CEDF00F7950D /* Answer.swift */; };
+		E2CE35F32021CEDF00F7950D /* LetterAPIAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35F22021CEDF00F7950D /* LetterAPIAnswer.swift */; };
 		E2CE35FA2021CFAA00F7950D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35F92021CFAA00F7950D /* HTTPMethod.swift */; };
-		E2CE35FE2021D5EC00F7950D /* PC2Paper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35FD2021D5EC00F7950D /* PC2Paper.swift */; };
+		E2CE35FE2021D5EC00F7950D /* LetterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35FD2021D5EC00F7950D /* LetterAPI.swift */; };
 		E2CE36002021D6DA00F7950D /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CE35FF2021D6DA00F7950D /* ApiError.swift */; };
 		E2E7026720227AB700D50697 /* SubmitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026420227AB700D50697 /* SubmitRequest.swift */; };
 		E2E7026820227AB700D50697 /* SubmitAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026520227AB700D50697 /* SubmitAnswer.swift */; };
@@ -26,12 +28,14 @@
 		D5B2E89F1C3A780C00C0327D /* PC2Paper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PC2Paper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9B3C7331FCEFD9100CDB7FF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		E22C40441E4291FB009469A1 /* PC2Paper.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = PC2Paper.podspec; sourceTree = "<group>"; };
+		E2A2950620248F7C004337F3 /* PricingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingAPI.swift; sourceTree = "<group>"; };
+		E2A295092024906A004337F3 /* PricingAPIAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingAPIAnswer.swift; sourceTree = "<group>"; };
 		E2C285A32021E2B000BD6A12 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		E2CE35EE2021CDF100F7950D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2CE35F02021CECC00F7950D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		E2CE35F22021CEDF00F7950D /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		E2CE35F22021CEDF00F7950D /* LetterAPIAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterAPIAnswer.swift; sourceTree = "<group>"; };
 		E2CE35F92021CFAA00F7950D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		E2CE35FD2021D5EC00F7950D /* PC2Paper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PC2Paper.swift; sourceTree = "<group>"; };
+		E2CE35FD2021D5EC00F7950D /* LetterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterAPI.swift; sourceTree = "<group>"; };
 		E2CE35FF2021D6DA00F7950D /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		E2E7026420227AB700D50697 /* SubmitRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitRequest.swift; sourceTree = "<group>"; };
 		E2E7026520227AB700D50697 /* SubmitAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitAnswer.swift; sourceTree = "<group>"; };
@@ -74,11 +78,11 @@
 		D5C629691C3A809D007F7B7C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E2A2950520248F0C004337F3 /* Class */,
 				E2CE35F82021CFA300F7950D /* Enum */,
 				E2CE35F52021CF1F00F7950D /* Model */,
 				E2CE35F42021CEE400F7950D /* Protocol */,
 				E2CE35ED2021CDE700F7950D /* Resources */,
-				E2CE35FD2021D5EC00F7950D /* PC2Paper.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -89,6 +93,24 @@
 				D9B3C7331FCEFD9100CDB7FF /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2A2950520248F0C004337F3 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				E2CE35FD2021D5EC00F7950D /* LetterAPI.swift */,
+				E2A2950620248F7C004337F3 /* PricingAPI.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		E2A295082024900C004337F3 /* Service Answers */ = {
+			isa = PBXGroup;
+			children = (
+				E2E7026A20227FC400D50697 /* ErrorAnswer.swift */,
+				E2E7026C2022818600D50697 /* StatusAnswer.swift */,
+			);
+			path = "Service Answers";
 			sourceTree = "<group>";
 		};
 		E2C285A52021E5E100BD6A12 /* SendSubmitLetterForPostingRequest */ = {
@@ -113,7 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				E2CE35F02021CECC00F7950D /* Request.swift */,
-				E2CE35F22021CEDF00F7950D /* Answer.swift */,
+				E2CE35F22021CEDF00F7950D /* LetterAPIAnswer.swift */,
+				E2A295092024906A004337F3 /* PricingAPIAnswer.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -121,8 +144,8 @@
 		E2CE35F52021CF1F00F7950D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E2E702722023271600D50697 /* LetterPricing */,
-				E2E702712023270D00D50697 /* Letter */,
+				E2E702722023271600D50697 /* Pricing API */,
+				E2E702712023270D00D50697 /* Letter API */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,23 +168,22 @@
 			path = UploadDocument;
 			sourceTree = "<group>";
 		};
-		E2E702712023270D00D50697 /* Letter */ = {
+		E2E702712023270D00D50697 /* Letter API */ = {
 			isa = PBXGroup;
 			children = (
 				E2E7026E20231D7800D50697 /* UploadDocument */,
 				E2C285A52021E5E100BD6A12 /* SendSubmitLetterForPostingRequest */,
-				E2E7026A20227FC400D50697 /* ErrorAnswer.swift */,
-				E2E7026C2022818600D50697 /* StatusAnswer.swift */,
+				E2A295082024900C004337F3 /* Service Answers */,
 			);
-			path = Letter;
+			path = "Letter API";
 			sourceTree = "<group>";
 		};
-		E2E702722023271600D50697 /* LetterPricing */ = {
+		E2E702722023271600D50697 /* Pricing API */ = {
 			isa = PBXGroup;
 			children = (
 				E2E702732023273600D50697 /* ZonesLetterCanBeSentFrom.swift */,
 			);
-			path = LetterPricing;
+			path = "Pricing API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,14 +272,16 @@
 				E2CE35FA2021CFAA00F7950D /* HTTPMethod.swift in Sources */,
 				E2CE35F12021CECC00F7950D /* Request.swift in Sources */,
 				E2E7026920227AB700D50697 /* SubmitBody.swift in Sources */,
+				E2A2950A2024906A004337F3 /* PricingAPIAnswer.swift in Sources */,
 				E2E7026D2022818600D50697 /* StatusAnswer.swift in Sources */,
 				E2C285A42021E2B000BD6A12 /* Result.swift in Sources */,
 				E2E702742023273600D50697 /* ZonesLetterCanBeSentFrom.swift in Sources */,
 				E2E7026720227AB700D50697 /* SubmitRequest.swift in Sources */,
-				E2CE35FE2021D5EC00F7950D /* PC2Paper.swift in Sources */,
-				E2CE35F32021CEDF00F7950D /* Answer.swift in Sources */,
+				E2CE35FE2021D5EC00F7950D /* LetterAPI.swift in Sources */,
+				E2CE35F32021CEDF00F7950D /* LetterAPIAnswer.swift in Sources */,
 				E2E7026820227AB700D50697 /* SubmitAnswer.swift in Sources */,
 				E2E7027020231D8500D50697 /* UploadDocumentRequest.swift in Sources */,
+				E2A2950720248F7C004337F3 /* PricingAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

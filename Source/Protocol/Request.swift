@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol Request {
-	associatedtype AnswerModel: Answer
+	associatedtype AnswerModel: LetterAPIAnswer
 	associatedtype BodyModel: RequestBody
 	
 	var httpMethod: HTTPMethod { get }

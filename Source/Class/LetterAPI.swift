@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class PC2Paper {
+public class LetterAPI {
 	
-	private let endpoint = URL(string: "https://www.pc2paper.co.uk/")!
+	private let endpoint = URL(string: "https://www.pc2paper.co.uk/lettercustomerapi.svc/json/")!
 	
 	public init() {}
 	

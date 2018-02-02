@@ -15,7 +15,7 @@ public struct UploadDocumentRequest: Request {
 	public typealias BodyModel = UploadDocumentRequestBody
 	
 	public let httpMethod: HTTPMethod = .POST
-	public let requestString = "lettercustomerapi.svc/json/UploadDocument"
+	public let requestString = "UploadDocument"
 	
 	public var body: BodyModel?
 	
@@ -59,7 +59,7 @@ public struct UploadDocumentRequestBody: RequestBody {
 	
 }
 
-public struct UploadDocumentAnswer: Answer {
+public struct UploadDocumentAnswer: LetterAPIAnswer {
 	
 	let errorMessages: [String]?
 	let fileCreatedGUID: String?

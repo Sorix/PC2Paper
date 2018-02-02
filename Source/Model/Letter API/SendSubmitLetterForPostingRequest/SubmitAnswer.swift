@@ -32,7 +32,7 @@
 import Foundation
 
 /// Result of letter submit request
-public struct SubmitLetterForPostingAnswer: Answer {
+public struct SubmitLetterForPostingAnswer: LetterAPIAnswer {
 	
 	let costOfLetter: Double
 	let errorMessages: [String]?

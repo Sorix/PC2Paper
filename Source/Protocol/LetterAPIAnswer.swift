@@ -1,5 +1,5 @@
 //
-//  Answer.swift
+//  LetterAPIAnswer.swift
 //  PC2Paper
 //
 //  Created by Vasily Ulianov on 31/01/2018.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-public protocol Answer: Decodable {}
+public protocol LetterAPIAnswer: Decodable {}
