@@ -8,8 +8,10 @@
 
 import Foundation
 
-public protocol PricingAPIAnswer {
+public protocol PricingAPIAnswer {}
+
+internal protocol _PricingAPIAnswer: PricingAPIAnswer {
 	
-	init(from data: Data) throws
+	init(from xml: Data) throws
 	
 }

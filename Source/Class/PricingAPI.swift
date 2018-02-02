@@ -8,66 +8,55 @@
 
 import Foundation
 
-public class LetterAPI {
+public class PricingAPI {
 	
-	private let endpoint = URL(string: "https://www.pc2paper.co.uk/lettercustomerapi.svc/json/")!
+	private let endpoint = "https://www.pc2paper.co.uk/"
 	
 	public init() {}
 	
-	public func make<RequestModel: Request>(request: RequestModel, sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default, completion: @escaping (Result<RequestModel.AnswerModel>) -> Void) {
+	public func make<RequestModel: PricingAPIRequest>(request: RequestModel, sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default, completion: @escaping (Result<RequestModel.AnswerModel>) -> Void) {
+		
+		guard let internalRequest = request as? _PricingAPIRequest else {
+			completion(.failed(ApiError.unexpectedError)); return
+		}
 		
 		// Make URL Request
-		let url = endpoint.appendingPathComponent(request.requestString)
-		var urlRequest = URLRequest(url: url)
-		urlRequest.httpMethod = request.httpMethod.rawValue
-		
-		if let body = request.body {
-			do {
-				let bodyJson = try JSONEncoder().encode(body)
-				
-				// Debug
-				let encoder = JSONEncoder()
-				encoder.outputFormatting = .prettyPrinted
-				let prettyBody = try encoder.encode(body)
-				print("JSON Request")
-				print(String(data: prettyBody, encoding: .utf8))
-				// End of debug
-				
-				urlRequest.httpBody = bodyJson
-				urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-			} catch {
-				completion(.failed(error))
-				return
-			}
+		let urlString = endpoint + internalRequest.requestString
+		guard let url = URL(string: urlString) else {
+			completion(.failed(ApiError.unexpectedError)); return
 		}
+		var urlRequest = URLRequest(url: url)
+		urlRequest.httpMethod = "GET"
+		
+		print(url)
 		
 		// Start session
 		let session = URLSession(configuration: sessionConfig)
 		
-		let task = session.dataTask(with: urlRequest) { (data, response, error) in
+		let task = session.dataTask(with: urlRequest) { (data, _, error) in
 			// HTTP Errors
 			if let error = error {
 				completion(.failed(error))
 				return
 			}
 			
-			guard let response = response as? HTTPURLResponse,
-				let data = data else {
+			guard let data = data else {
 					completion(.failed(ApiError.incorrectResponse))
 					return
 			}
 			
-			// Custom API errors
-			if let status = try? JSONDecoder().decode(StatusAnswer.self, from: data).status, status == "Error" {
-				let parsedError = self.parseError(data: data)
-				completion(.failed(parsedError))
+			guard let internalAnswer = RequestModel.AnswerModel.self as? _PricingAPIAnswer.Type else {
+				completion(.failed(ApiError.unexpectedError))
 				return
 			}
 			
 			// Correct answer
 			do {
 				print("RAW Answer: \(String(data: data, encoding: .utf8))")
-				let answer = try JSONDecoder().decode(RequestModel.AnswerModel.self, from: data)
+				guard let answer = try internalAnswer.init(from: data) as? RequestModel.AnswerModel else {
+					completion(.failed(ApiError.unexpectedError))
+					return
+				}
 				completion(.succeed(answer))
 			} catch {
 				let parseError = ApiError.parseFailed(error: error)

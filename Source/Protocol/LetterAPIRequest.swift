@@ -1,5 +1,5 @@
 //
-//  Request.swift
+//  LetterAPIRequest.swift
 //  PC2Paper
 //
 //  Created by Vasily Ulianov on 31/01/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Request {
+public protocol LetterAPIRequest {
 	associatedtype AnswerModel: LetterAPIAnswer
 	associatedtype BodyModel: RequestBody
 	

@@ -22,4 +22,7 @@ Pod::Spec.new do |s|
 
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
   s.documentation_url = 'http://cocoadocs.org/docsets/CloudCore/'
+
+  s.dependency 'SWXMLHash', '~> 4.0.0'
+
 end

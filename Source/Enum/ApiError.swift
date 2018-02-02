@@ -12,6 +12,9 @@ import Foundation
 /// Errors that can by thrown by PC2Paper framework
 public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertible {
 	
+	/// Unexpected error, should be reported as framework's bug
+	case unexpectedError
+	
 	/// Reponse is not JSON/HTTP etc
 	case incorrectResponse
 	
@@ -29,6 +32,7 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 	/// Short description of error without any detailed information
 	public var description: String {
 		switch self {
+		case .unexpectedError: return "Unexpected error"
 		case .incorrectResponse: return "Incorrect API Response"
 		case .parseFailed: return "Failed to parse API response"
 		case .error: return "API returned some errors"
@@ -38,6 +42,7 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 	/// Full error's description, may disclose private data
 	public var debugDescription: String {
 		switch self {
+		case .unexpectedError: return "Unexpected error, should be reported as framework's bug"
 		case .incorrectResponse: return description
 		case .parseFailed(let error): return "Failed to parse API response: \(error)"
 		case .error(let descriptions):

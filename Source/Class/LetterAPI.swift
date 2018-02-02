@@ -14,7 +14,7 @@ public class LetterAPI {
 	
 	public init() {}
 	
-	public func make<RequestModel: Request>(request: RequestModel, sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default, completion: @escaping (Result<RequestModel.AnswerModel>) -> Void) {
+	public func make<RequestModel: LetterAPIRequest>(request: RequestModel, sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default, completion: @escaping (Result<RequestModel.AnswerModel>) -> Void) {
 		
 		// Make URL Request
 		let url = endpoint.appendingPathComponent(request.requestString)
@@ -24,15 +24,6 @@ public class LetterAPI {
 		if let body = request.body {
 			do {
 				let bodyJson = try JSONEncoder().encode(body)
-				
-				// Debug
-				let encoder = JSONEncoder()
-				encoder.outputFormatting = .prettyPrinted
-				let prettyBody = try encoder.encode(body)
-				print("JSON Request")
-				print(String(data: prettyBody, encoding: .utf8))
-				// End of debug
-				
 				urlRequest.httpBody = bodyJson
 				urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
 			} catch {
@@ -51,8 +42,7 @@ public class LetterAPI {
 				return
 			}
 			
-			guard let response = response as? HTTPURLResponse,
-				let data = data else {
+			guard let data = data else {
 					completion(.failed(ApiError.incorrectResponse))
 					return
 			}
@@ -66,7 +56,6 @@ public class LetterAPI {
 			
 			// Correct answer
 			do {
-				print("RAW Answer: \(String(data: data, encoding: .utf8))")
 				let answer = try JSONDecoder().decode(RequestModel.AnswerModel.self, from: data)
 				completion(.succeed(answer))
 			} catch {

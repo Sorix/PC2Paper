@@ -10,7 +10,7 @@
 import Foundation
 
 /// Send letter request
-public struct SubmitLetterForPostingRequest: Request {
+public struct SubmitLetterForPostingRequest: LetterAPIRequest {
 	
 	public typealias AnswerModel = SubmitLetterForPostingAnswer
 	public typealias BodyModel = SubmitLetterForPostingRequestBody
