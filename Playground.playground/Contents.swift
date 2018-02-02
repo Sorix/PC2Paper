@@ -5,13 +5,13 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 let user = "testuser"
 let password = "testpassword"
 
-let request = ZoneOffersRequest(zoneID: 1)
+let request = PrintTypeRequest(zoneID: 1)
 
 let api = PricingAPI()
 api.make(request: request) { (result) in
 	switch result {
 	case .succeed(let answer):
-		print(answer.offers)
+		print(answer)
 	case .failed(let error):
 		print(error)
 	}
