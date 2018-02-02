@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Answer for `PricingAPIRequest` have to adopt that protocol, that gives type safety for parsing answers
 public protocol PricingAPIAnswer {}
 
 internal protocol _PricingAPIAnswer: PricingAPIAnswer {

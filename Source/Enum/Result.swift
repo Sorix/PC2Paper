@@ -8,7 +8,13 @@
 
 import Foundation
 
+/// Results are wrapped to that enumeration, so you can eliminate unneeded optionals
 public enum Result<T> {
+	
+	/// Request was succeded and we have answer in it
 	case succeed(T)
+	
+	/// Request was failed, check corresponding error
 	case failed(Error)
+	
 }

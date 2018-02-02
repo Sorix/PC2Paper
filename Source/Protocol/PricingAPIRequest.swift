@@ -8,8 +8,12 @@
 
 import Foundation
 
+/// All requests to Pricing API have to adopt that protocol
 public protocol PricingAPIRequest {
+	
+	/// Answer for request will be in that type
 	associatedtype AnswerModel: PricingAPIAnswer
+	
 }
 
 internal protocol _PricingAPIRequest {

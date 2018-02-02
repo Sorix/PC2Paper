@@ -8,4 +8,5 @@
 
 import Foundation
 
+/// Answer for `LetterAPIRequest` have to adopt that protocol, that gives type safety for parsing answers
 public protocol LetterAPIAnswer: Decodable {}

@@ -8,11 +8,18 @@
 
 import Foundation
 
+/// All requests to Letter API have to adopt that protocol
 public protocol LetterAPIRequest {
+	
+	/// Answer for request will be in that type
 	associatedtype AnswerModel: LetterAPIAnswer
+	
+	/// Request's JSON body type
 	associatedtype BodyModel: RequestBody
 	
+	/// Request's JSON body
 	var body: BodyModel? { get }
+	
 }
 
 internal protocol _LetterAPIRequest {

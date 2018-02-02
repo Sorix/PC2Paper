@@ -25,6 +25,7 @@ public class LetterAPI {
 		var urlRequest = URLRequest(url: url)
 		urlRequest.httpMethod = internalRequest.httpMethod.rawValue
 		
+		// Request body
 		if let body = request.body {
 			do {
 				let bodyJson = try JSONEncoder().encode(body)
