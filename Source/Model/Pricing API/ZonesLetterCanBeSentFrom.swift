@@ -13,8 +13,7 @@ public struct ZonesLetterCanBeSentFromRequest: PricingAPIRequest, _PricingAPIReq
 	
 	public typealias AnswerModel = ZonesLetterCanBeSentFromAnswer
 	
-	var requestString: String {
-		return "datagetpostage.asp?method=getZonesLetterCanBeSentFrom&str=" + String(countryCode) }
+	var requestString: String { return "datagetpostage.asp?method=getZonesLetterCanBeSentFrom&str=" + String(countryCode) }
 	
 	/// The country code we wish to receive available pricing for
 	public var countryCode: Int
@@ -45,20 +44,11 @@ public struct ZonesLetterCanBeSentFromAnswer: PricingAPIAnswer, _PricingAPIAnswe
 	
 	init(from data: Data) throws {
 		let xml = SWXMLHash.parse(data)
-		
-		let xmlZones = try xml.byKey("Zones")
-		let xmlNames = try xmlZones.byKey("name")
+		let xmlNames = try xml.byKey("Zones").byKey("name")
 		
 		var zones = [Zone]()
 		for xmlName in xmlNames.all {
-			guard let zoneIdText = xmlName.element?.attribute(by: "zoneid")?.text,
-				let zoneId = Int(zoneIdText),
-				let postageClass = xmlName.element?.text else {
-					let textError = ApiError.error(descriptions: ["Zoneid element is incorrect"])
-					throw ApiError.parseFailed(error: textError)
-			}
-			
-			let postageZone = Zone(id: zoneId, postageClass: postageClass)
+			let postageZone = try Zone(id: xmlName.value(ofAttribute: "zoneid"), postageClass: xmlName.value())
 			zones.append(postageZone)
 		}
 		

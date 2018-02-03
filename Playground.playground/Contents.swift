@@ -5,7 +5,7 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 let user = "testuser"
 let password = "testpassword"
 
-let request = PaperTypeRequest(zoneID: 3, printType: "Colour Laser")
+let request = ZoneOffersRequest(zoneID: 1)
 
 let api = PricingAPI()
 api.make(request: request) { (result) in

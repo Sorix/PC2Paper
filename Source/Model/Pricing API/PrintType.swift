@@ -14,8 +14,7 @@ public struct PrintTypeRequest: PricingAPIRequest, _PricingAPIRequest {
 	
 	public typealias AnswerModel = PrintTypeAnswer
 	
-	var requestString: String {
-		return "datagetpostage.asp?method=getPrintType&str=" + String(zoneID) }
+	var requestString: String { return "datagetpostage.asp?method=getPrintType&str=" + String(zoneID) }
 	
 	/// Zone ID that was saved from `ZonesLetterCanBeSentFromAnswer.Zone.id`
 	public var zoneID: Int
@@ -37,22 +36,7 @@ public struct PrintTypeAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	
 	init(from data: Data) throws {
 		let xml = SWXMLHash.parse(data)
-		
-		let xmlRoot = try xml.byKey("PrintType")
-		let xmlNames = try xmlRoot.byKey("name")
-		
-		var printTypes = [String]()
-		for xmlName in xmlNames.all {
-			guard let name = xmlName.element?.text else {
-					let textError = ApiError.error(descriptions: ["PrintType/Name not found"])
-					throw ApiError.parseFailed(error: textError)
-			}
-			
-			printTypes.append(name)
-		}
-		
-		self.printTypes = printTypes
+		self.printTypes = try xml.byKey("PrintType").byKey("name").value()
 	}
 	
 }
-

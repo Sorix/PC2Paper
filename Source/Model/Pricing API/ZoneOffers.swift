@@ -14,8 +14,7 @@ public struct ZoneOffersRequest: PricingAPIRequest, _PricingAPIRequest {
 	
 	public typealias AnswerModel = ZoneOffersAnswer
 	
-	var requestString: String {
-		return "datagetpostage.asp?method=getZoneOffers&str=" + String(zoneID) }
+	var requestString: String { return "datagetpostage.asp?method=getZoneOffers&str=" + String(zoneID) }
 	
 	/// Zone ID that was saved from `ZonesLetterCanBeSentFromAnswer.Zone.id`
 	public var zoneID: Int
@@ -50,20 +49,11 @@ public struct ZoneOffersAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	
 	init(from data: Data) throws {
 		let xml = SWXMLHash.parse(data)
-		
-		let xmlZones = try xml.byKey("PrintType")
-		let xmlNames = try xmlZones.byKey("name")
+		let xmlNames = try xml.byKey("PrintType").byKey("name")
 		
 		var offers = [Offer]()
 		for xmlName in xmlNames.all {
-			guard let itemIDText = xmlName.element?.attribute(by: "itemID")?.text,
-				let itemID = Int(itemIDText),
-				let name = xmlName.element?.text else {
-					let textError = ApiError.error(descriptions: ["Zoneid element is incorrect"])
-					throw ApiError.parseFailed(error: textError)
-			}
-			
-			let newOffer = Offer(itemID: itemID, name: name)
+			let newOffer = try Offer(itemID: xmlName.value(ofAttribute: "itemID"), name: xmlName.value())
 			offers.append(newOffer)
 		}
 		
