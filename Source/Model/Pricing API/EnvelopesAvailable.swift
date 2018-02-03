@@ -31,21 +31,21 @@ public struct EnvelopesAvailableRequest: PricingAPIRequest, _PricingAPIRequest {
 /// Answer for `EnvelopesAvailableRequest` request. This will return envelopes available for this particular zone, such as `Standard DL` or `A4 White Envelope`
 public struct EnvelopesAvailableAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	
-	/// Array of offers for that zone
-	public let envelopes: [Envelope]
+	/// Array of envelope types
+	public let envelopeTypes: [EnvelopeType]
 	
 	// MARK: - Models
 	
 	/// PC2Paper represents each postage option as a Zone.
-	public struct Envelope {
+	public struct EnvelopeType {
 		
-		/// Envelope ID
+		/// Envelope type ID
 		public let id: Int
 		
 		/// Cost of envelope
 		public let cost: Double
 		
-		/// Envelope name, e.g. `c. A4 White Envelope`
+		/// Envelope's name, e.g. `c. A4 White Envelope`
 		public let name: String
 		
 	}
@@ -54,16 +54,16 @@ public struct EnvelopesAvailableAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 		let xml = SWXMLHash.parse(data)
 		let xmlNames = try xml.byKey("PrintType").byKey("name")
 		
-		var envelopes = [Envelope]()
+		var envelopes = [EnvelopeType]()
 		for xmlName in xmlNames.all {
-			let envelope = try Envelope(id: xmlName.value(ofAttribute: "itemID"),
+			let envelope = try EnvelopeType(id: xmlName.value(ofAttribute: "itemID"),
 										cost: xmlName.value(ofAttribute: "cost"),
 										name: xmlName.value())
 			
 			envelopes.append(envelope)
 		}
 		
-		self.envelopes = envelopes
+		self.envelopeTypes = envelopes
 	}
 	
 }

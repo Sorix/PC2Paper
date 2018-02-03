@@ -40,7 +40,7 @@ public struct ZoneOffersAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	public struct Offer {
 		
 		/// Zone ID, store it for future API calls
-		public let itemID: Int
+		public let id: Int
 		
 		/// Example: `Special Next Day Delivery before 1pm`
 		public let name: String
@@ -53,7 +53,7 @@ public struct ZoneOffersAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 		
 		var offers = [Offer]()
 		for xmlName in xmlNames.all {
-			let newOffer = try Offer(itemID: xmlName.value(ofAttribute: "itemID"), name: xmlName.value())
+			let newOffer = try Offer(id: xmlName.value(ofAttribute: "itemID"), name: xmlName.value())
 			offers.append(newOffer)
 		}
 		

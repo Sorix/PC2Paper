@@ -47,7 +47,7 @@ public struct PaperTypeAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 		public let name: String
 	}
 
-	/// Print Types are the type of printers the user can have their letter printed on.
+	/// Array of paper types, such as `White gloss photo paper 170 gsm`
 	public let paperTypes: [Paper]
 	
 	init(from data: Data) throws {

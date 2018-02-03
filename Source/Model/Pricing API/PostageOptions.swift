@@ -9,22 +9,26 @@
 import Foundation
 import SWXMLHash
 
-public struct ZonesLetterCanBeSentFromRequest: PricingAPIRequest, _PricingAPIRequest {
+// This request asks to display postage options are available to the user based on what country they are sending their letter to.
+public struct PostageOptionsRequest: PricingAPIRequest, _PricingAPIRequest {
 	
-	public typealias AnswerModel = ZonesLetterCanBeSentFromAnswer
+	public typealias AnswerModel = PostageOptionsAnswer
 	
 	var requestString: String { return "datagetpostage.asp?method=getZonesLetterCanBeSentFrom&str=" + String(countryCode) }
 	
 	/// The country code we wish to receive available pricing for
 	public var countryCode: Int
 	
+	/// Creates an instance of request
+	///
+	/// - Parameter countryCode: The country code we wish to receive available pricing for
 	public init(countryCode: Int) {
 		self.countryCode = countryCode
 	}
 	
 }
 
-public struct ZonesLetterCanBeSentFromAnswer: PricingAPIAnswer, _PricingAPIAnswer {
+public struct PostageOptionsAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	
 	/// Array of zones for that country
 	public let zones: [Zone]
