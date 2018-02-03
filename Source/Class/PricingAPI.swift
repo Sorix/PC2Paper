@@ -22,6 +22,7 @@ public class PricingAPI {
 		
 		// Make URL Request
 		let urlString = endpoint + internalRequest.requestString
+		print(urlString)
 		guard let url = URL(string: urlString) else {
 			completion(.failed(ApiError.unexpectedError)); return
 		}
@@ -31,18 +32,20 @@ public class PricingAPI {
 		// Start session
 		let session = URLSession(configuration: sessionConfig)
 		
-		let task = session.dataTask(with: urlRequest) { (data, _, error) in
+		let task = session.dataTask(with: urlRequest) { (data, response, error) in
 			// HTTP Errors
 			if let error = error {
 				completion(.failed(error))
 				return
 			}
 			
-			guard let data = data else {
+			guard let response = response as? HTTPURLResponse,
+				let data = data, response.statusCode == 200 else {
 					completion(.failed(ApiError.incorrectResponse))
 					return
 			}
 			
+			// Get access to internal answer protocol
 			guard let internalAnswer = RequestModel.AnswerModel.self as? _PricingAPIAnswer.Type else {
 				completion(.failed(ApiError.unexpectedError))
 				return

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DDA8FA64B1851924BCBDAB6B /* Pods_PC2Paper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D035FE1CCA4AA3A33835A2 /* Pods_PC2Paper.framework */; };
 		E22338362024FD8E00AC7CF9 /* PrintType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22338352024FD8E00AC7CF9 /* PrintType.swift */; };
+		E22338412025B92400AC7CF9 /* PaperType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22338402025B92400AC7CF9 /* PaperType.swift */; };
+		E22338442025B99400AC7CF9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22338432025B99300AC7CF9 /* String.swift */; };
 		E2A2950720248F7C004337F3 /* PricingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2950620248F7C004337F3 /* PricingAPI.swift */; };
 		E2A2950A2024906A004337F3 /* PricingAPIAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A295092024906A004337F3 /* PricingAPIAnswer.swift */; };
 		E2A2950C202491C4004337F3 /* PricingAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2950B202491C4004337F3 /* PricingAPIRequest.swift */; };
@@ -35,6 +37,8 @@
 		D5B2E89F1C3A780C00C0327D /* PC2Paper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PC2Paper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9B3C7331FCEFD9100CDB7FF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		E22338352024FD8E00AC7CF9 /* PrintType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintType.swift; sourceTree = "<group>"; };
+		E22338402025B92400AC7CF9 /* PaperType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperType.swift; sourceTree = "<group>"; };
+		E22338432025B99300AC7CF9 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Source/Extension/String.swift; sourceTree = SOURCE_ROOT; };
 		E22C40441E4291FB009469A1 /* PC2Paper.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = PC2Paper.podspec; sourceTree = "<group>"; };
 		E2A2950620248F7C004337F3 /* PricingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingAPI.swift; sourceTree = "<group>"; };
 		E2A295092024906A004337F3 /* PricingAPIAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingAPIAnswer.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 		D5C629691C3A809D007F7B7C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E22338422025B98800AC7CF9 /* Extension */,
 				E2A2950520248F0C004337F3 /* Class */,
 				E2CE35F82021CFA300F7950D /* Enum */,
 				E2CE35F52021CF1F00F7950D /* Model */,
@@ -115,6 +120,15 @@
 				24D035FE1CCA4AA3A33835A2 /* Pods_PC2Paper.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E22338422025B98800AC7CF9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E22338432025B99300AC7CF9 /* String.swift */,
+			);
+			name = Extension;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		E2A2950520248F0C004337F3 /* Class */ = {
@@ -206,6 +220,7 @@
 			children = (
 				E2E702732023273600D50697 /* ZonesLetterCanBeSentFrom.swift */,
 				E22338352024FD8E00AC7CF9 /* PrintType.swift */,
+				E22338402025B92400AC7CF9 /* PaperType.swift */,
 				E2A2950F2024C427004337F3 /* ZoneOffers.swift */,
 			);
 			path = "Pricing API";
@@ -332,6 +347,7 @@
 			files = (
 				E2E7026B20227FC400D50697 /* ErrorAnswer.swift in Sources */,
 				E2A2950C202491C4004337F3 /* PricingAPIRequest.swift in Sources */,
+				E22338442025B99400AC7CF9 /* String.swift in Sources */,
 				E2CE36002021D6DA00F7950D /* ApiError.swift in Sources */,
 				E2CE35FA2021CFAA00F7950D /* HTTPMethod.swift in Sources */,
 				E2CE35F12021CECC00F7950D /* LetterAPIRequest.swift in Sources */,
@@ -340,6 +356,7 @@
 				E2A2950A2024906A004337F3 /* PricingAPIAnswer.swift in Sources */,
 				E2E7026D2022818600D50697 /* StatusAnswer.swift in Sources */,
 				E2C285A42021E2B000BD6A12 /* Result.swift in Sources */,
+				E22338412025B92400AC7CF9 /* PaperType.swift in Sources */,
 				E2E702742023273600D50697 /* ZonesLetterCanBeSentFrom.swift in Sources */,
 				E2E7026720227AB700D50697 /* SubmitRequest.swift in Sources */,
 				E2CE35FE2021D5EC00F7950D /* LetterAPI.swift in Sources */,
