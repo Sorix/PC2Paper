@@ -19,7 +19,7 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 	case incorrectResponse
 	
 	/// Unable to parse JSON reply from API
-	case parseFailed(error: Error)
+	case parseFailed(error: Error?)
 	
 	/// Used when request was successfull, but API returned errors
 	case error(descriptions: [String])
@@ -44,7 +44,7 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 		switch self {
 		case .unexpectedError: return "Unexpected error, should be reported as framework's bug"
 		case .incorrectResponse: return description
-		case .parseFailed(let error): return "Failed to parse API response: \(error)"
+		case .parseFailed(let error): return "Failed to parse API response: \(String(describing: error))"
 		case .error(let descriptions):
 			let output = "API returned errors: " + descriptions.joined(separator: ", ")
 			return output

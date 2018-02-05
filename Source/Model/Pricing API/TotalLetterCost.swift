@@ -42,43 +42,19 @@ public struct TotalLetterCostRequest: PricingAPIRequest, _PricingAPIRequest {
 	
 }
 
-/// Answer for `EnvelopesAvailableRequest` request. This will return envelopes available for this particular zone, such as `Standard DL` or `A4 White Envelope`
+/// Answer for `TotalLetterCostRequest` request, returning total cost of the letter given the results of the previous API methods.
 public struct TotalLetterCostAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	
-	/// Array of offers for that zone
-	public let envelopes: [Envelope]
-	
-	// MARK: - Models
-	
-	/// PC2Paper represents each postage option as a Zone.
-	public struct Envelope {
-		
-		/// Envelope ID
-		public let id: Int
-		
-		/// Cost of envelope
-		public let cost: Double
-		
-		/// Envelope name, e.g. `c. A4 White Envelope`
-		public let name: String
-		
-	}
+	/// Total cost of the letter
+	public let cost: Double
 	
 	init(from data: Data) throws {
-		let xml = SWXMLHash.parse(data)
-		let xmlNames = try xml.byKey("PrintType").byKey("name")
-		
-		var envelopes = [Envelope]()
-		for xmlName in xmlNames.all {
-			let envelope = try Envelope(id: xmlName.value(ofAttribute: "itemID"),
-										cost: xmlName.value(ofAttribute: "cost"),
-										name: xmlName.value())
-			
-			envelopes.append(envelope)
+		guard let text = String(data: data, encoding: .utf8),
+			let cost = Double(text) else {
+				throw ApiError.parseFailed(error: nil)
 		}
 		
-		self.envelopes = envelopes
+		self.cost = cost
 	}
 	
 }
-

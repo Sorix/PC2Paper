@@ -9,7 +9,7 @@
 import Foundation
 import SWXMLHash
 
-// This request asks to display postage options are available to the user based on what country they are sending their letter to.
+/// This request asks to display postage options are available to the user based on what country they are sending their letter to.
 public struct PostageOptionsRequest: PricingAPIRequest, _PricingAPIRequest {
 	
 	public typealias AnswerModel = PostageOptionsAnswer

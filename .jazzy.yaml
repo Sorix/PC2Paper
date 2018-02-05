@@ -1,15 +1,38 @@
 theme: fullwidth
 abstract: Documentation/*.md
 custom_categories:
+  - name: Pricing API
+    children:
+      - PricingAPI
+
   - name: Postage Options
     children:
-      - ZonesLetterCanBeSentFromRequest
-      - ZonesLetterCanBeSentFromAnswer
+      - PostageOptionsRequest
+      - PostageOptionsAnswer
 
   - name: Zone Offers
     children:
       - ZoneOffersRequest
       - ZoneOffersAnswer
+
+  - name: Print Type
+    children:
+      - PrintTypeRequest
+      - PrintTypeAnswer
+
+  - name: Paper Type
+    children:
+      - PaperTypeRequest
+      - PaperTypeAnswer
+
+  - name: Envelopes Available
+    children:
+      - EnvelopesAvailableRequest
+      - EnvelopesAvailableAnswer
+
+  - name: Letter API
+    children:
+      - LetterAPI
 
   - name: Submit Letter
     children:

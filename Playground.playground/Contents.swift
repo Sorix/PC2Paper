@@ -5,7 +5,9 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 let user = "testuser"
 let password = "testpassword"
 
-let request = EnvelopesAvailableRequest(zoneID: 1)
+//http://www.pc2paper.co.uk/datagetpostage.asp?method=getTotalForLetterByPages&str=3,5,1,0,1 (Total Letter Cost)
+
+let request = TotalLetterCostRequest(zoneID: 3, paperTypeID: 5, numberOfPages: 1, zoneOfferID: 0, envelopeID: 1)
 
 let api = PricingAPI()
 api.make(request: request) { (result) in
@@ -18,5 +20,3 @@ api.make(request: request) { (result) in
 	
 	PlaygroundPage.current.finishExecution()
 }
-
-
