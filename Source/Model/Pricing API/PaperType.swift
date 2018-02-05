@@ -41,14 +41,19 @@ public struct PaperTypeRequest: PricingAPIRequest, _PricingAPIRequest {
 /// Answer for `PaperTypeRequest` request with papers types.
 public struct PaperTypeAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	
+	/// Array of paper types, such as `White gloss photo paper 170 gsm`
+	public let paperTypes: [Paper]
+	
+	// MARK: - Models
+	
+	/// Struct describing paper type
 	public struct Paper {
 		public let id: Int
 		public let cost: Double
+		
+		/// Name of papery type, e.g. `White gloss photo paper 170 gsm`
 		public let name: String
 	}
-
-	/// Array of paper types, such as `White gloss photo paper 170 gsm`
-	public let paperTypes: [Paper]
 	
 	init(from data: Data) throws {
 		let xml = SWXMLHash.parse(data)

@@ -9,7 +9,7 @@
 import Foundation
 import SWXMLHash
 
-/// This request asks to display postage options are available to the user based on what country they are sending their letter to.
+/// This request asks to display postage options are available to the user based on what country they are sending their letter to. Most time that will be your **first request to PricingAPI**.
 public struct PostageOptionsRequest: PricingAPIRequest, _PricingAPIRequest {
 	
 	public typealias AnswerModel = PostageOptionsAnswer
@@ -28,6 +28,8 @@ public struct PostageOptionsRequest: PricingAPIRequest, _PricingAPIRequest {
 	
 }
 
+
+/// Answer for `PostageOptionsRequest` request, returning postage options as `Zone`, save `Zone.id` for following requests.
 public struct PostageOptionsAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	
 	/// Array of zones for that country

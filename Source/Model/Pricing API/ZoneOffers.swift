@@ -28,7 +28,7 @@ public struct ZoneOffersRequest: PricingAPIRequest, _PricingAPIRequest {
 	
 }
 
-/// Answer for `ZoneOffersRequest` request. This will return options such as recorded delivery, signed for etc...
+/// Answer for `ZoneOffersRequest` request. This will return options such as recorded delivery, signed for etc.
 public struct ZoneOffersAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	
 	/// Array of offers for that zone

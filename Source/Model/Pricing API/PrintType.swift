@@ -28,7 +28,7 @@ public struct PrintTypeRequest: PricingAPIRequest, _PricingAPIRequest {
 	
 }
 
-/// Answer for `PrintTypeRequest` request. This will return options such as recorded delivery, signed for etc...
+/// Answer for `PrintTypeRequest` request. This will print types such as `Colour Laser`.
 public struct PrintTypeAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	
 	/// Print Types are the type of printers the user can have their letter printed on.
