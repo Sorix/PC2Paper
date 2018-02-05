@@ -7,7 +7,7 @@ let password = "testpassword"
 
 //http://www.pc2paper.co.uk/datagetpostage.asp?method=getTotalForLetterByPages&str=3,5,1,0,1 (Total Letter Cost)
 
-let request = TotalLetterCostRequest(zoneID: 3, paperTypeID: 5, numberOfPages: 1, zoneOfferID: 0, envelopeID: 1)
+let request = TotalLetterCostRequest(zoneID: 3, paperTypeID: 5, numberOfPages: 1, zoneOfferID: 0, envelopeTypeID: 1)
 
 let api = PricingAPI()
 api.make(request: request) { (result) in

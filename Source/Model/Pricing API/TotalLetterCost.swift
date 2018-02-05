@@ -7,14 +7,16 @@
 //
 
 import Foundation
-import SWXMLHash
 
 /// This request asks to calculate the total cost of the letter given the results of the previous API methods.
 public struct TotalLetterCostRequest: PricingAPIRequest, _PricingAPIRequest {
 	
 	public typealias AnswerModel = TotalLetterCostAnswer
 	
-	var requestString: String { return "datagetpostage.asp?method=getServiceChargeBasedOnZone&str=" + String(zoneID) }
+	var requestString: String {
+		let params = [String(zoneID), String(paperTypeID), String(numberOfPages), String(zoneOfferID), String(envelopeTypeID)]
+		return "datagetpostage.asp?method=getTotalForLetterByPages&str=" + params.joined(separator: ",")
+	}
 	
 	/// Zone ID that was saved from `ZonesLetterCanBeSentFromAnswer.Zone.id`
 	public var zoneID: Int
@@ -29,15 +31,15 @@ public struct TotalLetterCostRequest: PricingAPIRequest, _PricingAPIRequest {
 	public var zoneOfferID: Int
 	
 	/// Envelope type ID received from `EnvelopesAvailableAnswer.EnvelopeType.id`
-	public var envelopeID: Int
+	public var envelopeTypeID: Int
 	
 	/// Creates an instance of request
-	public init(zoneID: Int, paperTypeID: Int, numberOfPages: Int, zoneOfferID: Int, envelopeID: Int) {
+	public init(zoneID: Int, paperTypeID: Int, numberOfPages: Int, zoneOfferID: Int, envelopeTypeID: Int) {
 		self.zoneID = zoneID
 		self.paperTypeID = paperTypeID
 		self.numberOfPages = numberOfPages
 		self.zoneOfferID = zoneOfferID
-		self.envelopeID = envelopeID
+		self.envelopeTypeID = envelopeTypeID
 	}
 	
 }
