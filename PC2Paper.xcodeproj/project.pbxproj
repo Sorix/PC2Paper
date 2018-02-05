@@ -14,6 +14,8 @@
 		E22338462025C18D00AC7CF9 /* EnvelopesAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22338452025C18D00AC7CF9 /* EnvelopesAvailable.swift */; };
 		E22338482025C49800AC7CF9 /* TotalLetterCost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22338472025C49800AC7CF9 /* TotalLetterCost.swift */; };
 		E291AA2A2029076D0027643A /* ServiceCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291AA292029076D0027643A /* ServiceCharge.swift */; };
+		E291AA2E20290D710027643A /* CountriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291AA2D20290D710027643A /* CountriesList.swift */; };
+		E291AA3120290E270027643A /* CountriesAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291AA3020290E270027643A /* CountriesAnswer.swift */; };
 		E2A2950720248F7C004337F3 /* PricingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2950620248F7C004337F3 /* PricingAPI.swift */; };
 		E2A2950A2024906A004337F3 /* PricingAPIAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A295092024906A004337F3 /* PricingAPIAnswer.swift */; };
 		E2A2950C202491C4004337F3 /* PricingAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2950B202491C4004337F3 /* PricingAPIRequest.swift */; };
@@ -46,6 +48,8 @@
 		E22338472025C49800AC7CF9 /* TotalLetterCost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalLetterCost.swift; sourceTree = "<group>"; };
 		E22C40441E4291FB009469A1 /* PC2Paper.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = PC2Paper.podspec; sourceTree = "<group>"; };
 		E291AA292029076D0027643A /* ServiceCharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCharge.swift; sourceTree = "<group>"; };
+		E291AA2D20290D710027643A /* CountriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesList.swift; sourceTree = "<group>"; };
+		E291AA3020290E270027643A /* CountriesAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesAnswer.swift; sourceTree = "<group>"; };
 		E2A2950620248F7C004337F3 /* PricingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingAPI.swift; sourceTree = "<group>"; };
 		E2A295092024906A004337F3 /* PricingAPIAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingAPIAnswer.swift; sourceTree = "<group>"; };
 		E2A2950B202491C4004337F3 /* PricingAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingAPIRequest.swift; sourceTree = "<group>"; };
@@ -137,11 +141,20 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		E291AA2F20290E190027643A /* Countries */ = {
+			isa = PBXGroup;
+			children = (
+				E291AA3020290E270027643A /* CountriesAnswer.swift */,
+			);
+			path = Countries;
+			sourceTree = "<group>";
+		};
 		E2A2950520248F0C004337F3 /* Class */ = {
 			isa = PBXGroup;
 			children = (
 				E2CE35FD2021D5EC00F7950D /* LetterAPI.swift */,
 				E2A2950620248F7C004337F3 /* PricingAPI.swift */,
+				E291AA2D20290D710027643A /* CountriesList.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -187,6 +200,7 @@
 		E2CE35F52021CF1F00F7950D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E291AA2F20290E190027643A /* Countries */,
 				E2E702722023271600D50697 /* Pricing API */,
 				E2E702712023270D00D50697 /* Letter API */,
 			);
@@ -367,6 +381,7 @@
 				E2E7026D2022818600D50697 /* StatusAnswer.swift in Sources */,
 				E2C285A42021E2B000BD6A12 /* Result.swift in Sources */,
 				E22338412025B92400AC7CF9 /* PaperType.swift in Sources */,
+				E291AA3120290E270027643A /* CountriesAnswer.swift in Sources */,
 				E2E702742023273600D50697 /* PostageOptions.swift in Sources */,
 				E22338482025C49800AC7CF9 /* TotalLetterCost.swift in Sources */,
 				E2E7026720227AB700D50697 /* SubmitRequest.swift in Sources */,
@@ -376,6 +391,7 @@
 				E2E7026820227AB700D50697 /* SubmitAnswer.swift in Sources */,
 				E22338462025C18D00AC7CF9 /* EnvelopesAvailable.swift in Sources */,
 				E2E7027020231D8500D50697 /* UploadDocumentRequest.swift in Sources */,
+				E291AA2E20290D710027643A /* CountriesList.swift in Sources */,
 				E2A2950720248F7C004337F3 /* PricingAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,6 +50,15 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 			return output
 		}
 	}
-	
 
+}
+
+public struct TextError: Error {
+	
+	public var localizedDescription: String
+	
+	init(_ text: String) {
+		self.localizedDescription = text
+	}
+	
 }
