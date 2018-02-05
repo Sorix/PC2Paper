@@ -53,7 +53,8 @@ public struct TotalLetterCostAnswer: PricingAPIAnswer, _PricingAPIAnswer {
 	init(from data: Data) throws {
 		guard let text = String(data: data, encoding: .utf8),
 			let cost = Double(text) else {
-				throw ApiError.parseFailed(error: nil)
+				let error = TextError("Failed to convert data to text and to Int")
+				throw ApiError.parseFailed(error: error)
 		}
 		
 		self.cost = cost

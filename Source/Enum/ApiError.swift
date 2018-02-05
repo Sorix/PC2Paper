@@ -19,7 +19,7 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 	case incorrectResponse
 	
 	/// Unable to parse JSON reply from API
-	case parseFailed(error: Error?)
+	case parseFailed(error: Error)
 	
 	/// Used when request was successfull, but API returned errors
 	case error(descriptions: [String])

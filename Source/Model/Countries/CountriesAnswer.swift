@@ -27,7 +27,7 @@ public struct CountriesAnswer {
 
 	init(from data: Data) throws {
 		guard let text = String(data: data, encoding: .utf8) else {
-			throw ApiError.parseFailed(error: nil)
+			throw ApiError.parseFailed(error: TextError("Unable to convert data to string"))
 		}
 		
 		var countries = [Country]()
