@@ -1,5 +1,6 @@
 import PlaygroundSupport
 import PC2Paper
+import Foundation
 PlaygroundPage.current.needsIndefiniteExecution = true
 
 let user = "testuser"
@@ -24,10 +25,11 @@ let password = "testpassword"
 CountriesList().fetch { result in
 	switch result {
 	case .succeed(let answer):
-		print(answer)
+		print(answer.countries[2])
 	case .failed(let error):
 		debugPrint(error)
 	}
-	
+
 	PlaygroundPage.current.finishExecution()
 }
+

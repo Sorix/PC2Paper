@@ -36,21 +36,38 @@ public struct CountriesAnswer {
 		for row in rows {
 			guard !row.isEmpty else { continue } // it is last line
 			
-			let columns = row.components(separatedBy: ",")
-			guard columns.count == 2 else {
-				throw ApiError.parseFailed(error: TextError("Unexpected number of columns: \(columns.count)"))
-			}
-
-			let idText = columns[0]
-			let countryName = columns[1]
-			
-			guard let id = Int(idText) else {
-				throw ApiError.parseFailed(error: TextError("Incorrect country id: \(idText)"))
-			}
-			
-			countries.append(Country(id: id, name: countryName))
+			let country = try CountriesAnswer.parse(row: row)
+			countries.append(country)
 		}
 		
 		self.countries = countries
 	}
+	
+	/// Parse CSV row to country
+	///
+	/// - Parameter row: row at CSV file, example: `10,"Antigua & Barbuda	"`
+	/// - Throws: `ApiError.parseFailed` if row has unexpected format
+	private static func parse(row: String) throws -> Country {
+		let columns = row.components(separatedBy: ",")
+		guard columns.count == 2 else {
+			throw ApiError.parseFailed(error: TextError("Unexpected number of columns: \(columns.count)"))
+		}
+		
+		// Raw values
+		let rawId = columns[0]
+		let rawCountry = columns[1]
+		
+		// Convert ID to Int
+		guard let id = Int(rawId) else {
+			throw ApiError.parseFailed(error: TextError("Incorrect country id: \(rawId)"))
+		}
+		
+		// Trim country (raw value: `"Abu Dhabi (use UAE)	"`
+		var characterSetToTrim = CharacterSet.whitespaces
+		characterSetToTrim.insert(charactersIn: "\"")
+		let country = rawCountry.trimmingCharacters(in: characterSetToTrim)
+		
+		return Country(id: id, name: country)
+	}
+	
 }

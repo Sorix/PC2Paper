@@ -53,6 +53,7 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 
 }
 
+/// Textual error
 public struct TextError: Error {
 	
 	public var localizedDescription: String
