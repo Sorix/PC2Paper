@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DDA8FA64B1851924BCBDAB6B /* Pods_PC2Paper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D035FE1CCA4AA3A33835A2 /* Pods_PC2Paper.framework */; };
+		E200C331204411AA00D89EA8 /* LetterAPIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E200C330204411AA00D89EA8 /* LetterAPIOperation.swift */; };
 		E22338362024FD8E00AC7CF9 /* PrintType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22338352024FD8E00AC7CF9 /* PrintType.swift */; };
 		E22338412025B92400AC7CF9 /* PaperType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22338402025B92400AC7CF9 /* PaperType.swift */; };
 		E22338442025B99400AC7CF9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22338432025B99300AC7CF9 /* String.swift */; };
@@ -33,6 +34,8 @@
 		E2E7026D2022818600D50697 /* StatusAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026C2022818600D50697 /* StatusAnswer.swift */; };
 		E2E7027020231D8500D50697 /* UploadDocumentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E7026F20231D8500D50697 /* UploadDocumentRequest.swift */; };
 		E2E702742023273600D50697 /* PostageOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E702732023273600D50697 /* PostageOptions.swift */; };
+		E2F9E170202E3217002F5EC5 /* PricingAPIOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9E16F202E3217002F5EC5 /* PricingAPIOperation.swift */; };
+		E2F9E172202E3375002F5EC5 /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9E171202E3375002F5EC5 /* AsynchronousOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,7 @@
 		4DFBB72241E446DF80C0C347 /* Pods-PC2Paper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PC2Paper.release.xcconfig"; path = "Pods/Target Support Files/Pods-PC2Paper/Pods-PC2Paper.release.xcconfig"; sourceTree = "<group>"; };
 		D5B2E89F1C3A780C00C0327D /* PC2Paper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PC2Paper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9B3C7331FCEFD9100CDB7FF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		E200C330204411AA00D89EA8 /* LetterAPIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterAPIOperation.swift; sourceTree = "<group>"; };
 		E22338352024FD8E00AC7CF9 /* PrintType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintType.swift; sourceTree = "<group>"; };
 		E22338402025B92400AC7CF9 /* PaperType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperType.swift; sourceTree = "<group>"; };
 		E22338432025B99300AC7CF9 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Source/Extension/String.swift; sourceTree = SOURCE_ROOT; };
@@ -68,6 +72,8 @@
 		E2E7026C2022818600D50697 /* StatusAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusAnswer.swift; sourceTree = "<group>"; };
 		E2E7026F20231D8500D50697 /* UploadDocumentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentRequest.swift; sourceTree = "<group>"; };
 		E2E702732023273600D50697 /* PostageOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostageOptions.swift; sourceTree = "<group>"; };
+		E2F9E16F202E3217002F5EC5 /* PricingAPIOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingAPIOperation.swift; sourceTree = "<group>"; };
+		E2F9E171202E3375002F5EC5 /* AsynchronousOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +159,10 @@
 			isa = PBXGroup;
 			children = (
 				E2CE35FD2021D5EC00F7950D /* LetterAPI.swift */,
+				E200C330204411AA00D89EA8 /* LetterAPIOperation.swift */,
 				E2A2950620248F7C004337F3 /* PricingAPI.swift */,
+				E2F9E16F202E3217002F5EC5 /* PricingAPIOperation.swift */,
+				E2F9E171202E3375002F5EC5 /* AsynchronousOperation.swift */,
 				E291AA2D20290D710027643A /* CountriesList.swift */,
 			);
 			path = Class;
@@ -369,6 +378,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2E7026B20227FC400D50697 /* ErrorAnswer.swift in Sources */,
+				E2F9E170202E3217002F5EC5 /* PricingAPIOperation.swift in Sources */,
+				E200C331204411AA00D89EA8 /* LetterAPIOperation.swift in Sources */,
 				E2A2950C202491C4004337F3 /* PricingAPIRequest.swift in Sources */,
 				E22338442025B99400AC7CF9 /* String.swift in Sources */,
 				E2CE36002021D6DA00F7950D /* ApiError.swift in Sources */,
@@ -381,6 +392,7 @@
 				E2E7026D2022818600D50697 /* StatusAnswer.swift in Sources */,
 				E2C285A42021E2B000BD6A12 /* Result.swift in Sources */,
 				E22338412025B92400AC7CF9 /* PaperType.swift in Sources */,
+				E2F9E172202E3375002F5EC5 /* AsynchronousOperation.swift in Sources */,
 				E291AA3120290E270027643A /* CountriesAnswer.swift in Sources */,
 				E2E702742023273600D50697 /* PostageOptions.swift in Sources */,
 				E22338482025C49800AC7CF9 /* TotalLetterCost.swift in Sources */,
