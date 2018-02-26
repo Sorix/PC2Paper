@@ -35,7 +35,7 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 		case .unexpectedError: return "Unexpected error"
 		case .incorrectResponse: return "Incorrect API Response"
 		case .parseFailed: return "Failed to parse API response"
-		case .error: return "API returned some errors"
+		case .error(let descriptions): return descriptions.joined(separator: "\n")
 		}
 	}
 	

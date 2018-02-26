@@ -16,7 +16,7 @@ public struct SubmitLetterForPostingRequest: LetterAPIRequest, _LetterAPIRequest
 	public typealias BodyModel = SubmitLetterForPostingRequestBody
 	
 	let httpMethod: HTTPMethod = .POST
-	let requestString = "lettercustomerapi.svc/json/SendSubmitLetterForPosting"
+	let requestString = "SendSubmitLetterForPosting"
 	
 	public var body: BodyModel?
 	

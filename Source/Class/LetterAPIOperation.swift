@@ -10,10 +10,14 @@ import Foundation
 
 public class LetterAPIOperation<RequestModel: LetterAPIRequest>: AsynchronousOperation {
 	
+	public typealias FetchResult = Result<RequestModel.AnswerModel>
+	
 	public let request: RequestModel
 	
 	public var sessionConfig = URLSessionConfiguration.default
-	public var fetchCompletionBlock: ((Result<RequestModel.AnswerModel>) -> Void)?
+	public var fetchCompletionBlock: ((FetchResult) -> Void)?
+	
+	public private(set) var fetchResult: FetchResult?
 	
 	private let endpoint = "https://www.pc2paper.co.uk/lettercustomerapi.svc/json/"
 	
@@ -25,17 +29,15 @@ public class LetterAPIOperation<RequestModel: LetterAPIRequest>: AsynchronousOpe
 		super.main()
 		
 		guard let internalRequest = request as? _LetterAPIRequest else {
-			fetchCompletionBlock?(.failed(ApiError.unexpectedError))
-			state = .finished
+			self.finish(result: .failed(ApiError.unexpectedError))
 			return
 		}
 		
 		// Make URL Request
 		let urlString = endpoint + internalRequest.requestString
 		print(urlString)
-		guard let url = URL(string: endpoint) else {
-			fetchCompletionBlock?(.failed(ApiError.unexpectedError))
-			state = .finished
+		guard let url = URL(string: urlString) else {
+			self.finish(result: .failed(ApiError.unexpectedError))
 			return
 		}
 		var urlRequest = URLRequest(url: url)
@@ -48,8 +50,7 @@ public class LetterAPIOperation<RequestModel: LetterAPIRequest>: AsynchronousOpe
 				urlRequest.httpBody = bodyJson
 				urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
 			} catch {
-				fetchCompletionBlock?(.failed(error))
-				state = .finished
+				self.finish(result: .failed(error))
 				return
 			}
 		}
@@ -58,39 +59,41 @@ public class LetterAPIOperation<RequestModel: LetterAPIRequest>: AsynchronousOpe
 		let session = URLSession(configuration: sessionConfig)
 		
 		let task = session.dataTask(with: urlRequest) { (data, response, error) in
-			defer {
-				self.state = .finished
-			}
-			
 			// HTTP Errors
 			if let error = error {
-				self.fetchCompletionBlock?(.failed(error))
+				self.finish(result: .failed(error))
 				return
 			}
 			
 			guard let data = data else {
-				self.fetchCompletionBlock?(.failed(ApiError.incorrectResponse))
+				self.finish(result: .failed(ApiError.incorrectResponse))
 				return
 			}
 			
 			// Custom API errors
 			if let status = try? JSONDecoder().decode(StatusAnswer.self, from: data).status, status == "Error" {
 				let parsedError = self.parseError(data: data)
-				self.fetchCompletionBlock?(.failed(parsedError))
+				self.finish(result: .failed(parsedError))
 				return
 			}
 			
 			// Correct answer
 			do {
 				let answer = try JSONDecoder().decode(RequestModel.AnswerModel.self, from: data)
-				self.fetchCompletionBlock?(.succeed(answer))
+				self.finish(result: .succeed(answer))
 			} catch {
 				let parseError = ApiError.parseFailed(error: error)
-				self.fetchCompletionBlock?(.failed(parseError))
+				self.finish(result: .failed(parseError))
 			}
 		}
 		
 		task.resume()
+	}
+	
+	private func finish(result: FetchResult) {
+		fetchResult = result
+		fetchCompletionBlock?(result)
+		state = .finished
 	}
 	
 	private func parseError(data: Data) -> ApiError {
