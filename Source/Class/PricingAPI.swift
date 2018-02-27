@@ -11,9 +11,11 @@ import Foundation
 public class PricingAPI {
 	
 	public static func make<RequestModel: PricingAPIRequest>(request: RequestModel, completion: @escaping (Result<RequestModel.AnswerModel>) -> Void) {
-		let operation = PricingAPIOperation(request: request)
-		operation.fetchCompletionBlock = completion
-		operation.start()
+		DispatchQueue.global().async {
+			let operation = PricingAPIOperation(request: request)
+			operation.fetchCompletionBlock = completion
+			operation.start()
+		}
 	}
 	
 }

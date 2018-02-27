@@ -11,9 +11,11 @@ import Foundation
 public class LetterAPI {
 	
 	public static func make<RequestModel: LetterAPIRequest>(request: RequestModel, completion: @escaping (Result<RequestModel.AnswerModel>) -> Void) {
-		let operation = LetterAPIOperation(request: request)
-		operation.fetchCompletionBlock = completion
-		operation.start()
+		DispatchQueue.global().async {
+			let operation = LetterAPIOperation(request: request)
+			operation.fetchCompletionBlock = completion
+			operation.start()
+		}
 	}
 	
 }
