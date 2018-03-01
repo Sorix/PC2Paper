@@ -10,7 +10,7 @@ import Foundation
 
 
 /// Errors that can by thrown by PC2Paper framework
-public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertible {
+public enum ApiError: LocalizedError, CustomStringConvertible, CustomDebugStringConvertible {
 	
 	/// Unexpected error, should be reported as framework's bug
 	case unexpectedError
@@ -27,7 +27,7 @@ public enum ApiError: Error, CustomStringConvertible, CustomDebugStringConvertib
 	// MARK: - Variables
 	
 	/// Alias of `description`
-	public var localizedDescription: String { return self.description }
+	public var errorDescription: String? { return self.description }
 	
 	/// Short description of error without any detailed information
 	public var description: String {
