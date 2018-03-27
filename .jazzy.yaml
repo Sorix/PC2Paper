@@ -1,9 +1,13 @@
 theme: fullwidth
 abstract: Documentation/*.md
 custom_categories:
+
+  # Pricing API
+
   - name: Pricing API
     children:
       - PricingAPI
+      - PricingAPIOperation
 
   - name: Postage Options
     children:
@@ -30,9 +34,12 @@ custom_categories:
       - EnvelopesAvailableRequest
       - EnvelopesAvailableAnswer
 
+  # Letter API
+
   - name: Letter API
     children:
       - LetterAPI
+      - LetterAPIOperation
 
   - name: Submit Letter
     children:
@@ -45,3 +52,10 @@ custom_categories:
       - UploadDocumentRequest
       - UploadDocumentRequestBody
       - UploadDocumentAnswer
+
+  # Countries
+
+  - name: Countries List
+    children:
+      - CountriesList
+      - CountriesAnswer

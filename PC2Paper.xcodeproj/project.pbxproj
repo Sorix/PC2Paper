@@ -177,14 +177,14 @@
 			path = "Service Answers";
 			sourceTree = "<group>";
 		};
-		E2C285A52021E5E100BD6A12 /* SendSubmitLetterForPostingRequest */ = {
+		E2C285A52021E5E100BD6A12 /* Submit Letter */ = {
 			isa = PBXGroup;
 			children = (
 				E2E7026420227AB700D50697 /* SubmitRequest.swift */,
 				E2E7026620227AB700D50697 /* SubmitBody.swift */,
 				E2E7026520227AB700D50697 /* SubmitAnswer.swift */,
 			);
-			path = SendSubmitLetterForPostingRequest;
+			path = "Submit Letter";
 			sourceTree = "<group>";
 		};
 		E2CE35ED2021CDE700F7950D /* Resources */ = {
@@ -226,19 +226,19 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		E2E7026E20231D7800D50697 /* UploadDocument */ = {
+		E2E7026E20231D7800D50697 /* Upload Document */ = {
 			isa = PBXGroup;
 			children = (
 				E2E7026F20231D8500D50697 /* UploadDocumentRequest.swift */,
 			);
-			path = UploadDocument;
+			path = "Upload Document";
 			sourceTree = "<group>";
 		};
 		E2E702712023270D00D50697 /* Letter API */ = {
 			isa = PBXGroup;
 			children = (
-				E2E7026E20231D7800D50697 /* UploadDocument */,
-				E2C285A52021E5E100BD6A12 /* SendSubmitLetterForPostingRequest */,
+				E2E7026E20231D7800D50697 /* Upload Document */,
+				E2C285A52021E5E100BD6A12 /* Submit Letter */,
 				E2A295082024900C004337F3 /* Service Answers */,
 			);
 			path = "Letter API";

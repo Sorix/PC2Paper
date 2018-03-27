@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /// Errors that can by thrown by PC2Paper framework
 public enum ApiError: LocalizedError, CustomStringConvertible, CustomDebugStringConvertible {
 	

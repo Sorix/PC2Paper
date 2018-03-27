@@ -8,25 +8,36 @@
 
 import Foundation
 
+/// Asynchronous operation with request to PC2Paper's Letter API. You can use operation directly or through calling `LetterAPI.make(...)` closure.
 public class LetterAPIOperation<RequestModel: LetterAPIRequest>: AsynchronousOperation {
 	
 	public typealias FetchResult = Result<RequestModel.AnswerModel>
 	
 	public let request: RequestModel
 	
+	/// Requests made through `URLSession`, you can specify session configuration here if you want (e.g. for background operations).
 	public var sessionConfig = URLSessionConfiguration.default
+	
+	/// The block to execute after the operation is completed.
 	public var fetchCompletionBlock: ((FetchResult) -> Void)?
 	
+	/// Operation's result, `nil` if operation is still not completed
 	public private(set) var fetchResult: FetchResult?
 	
 	private let endpoint = "https://www.pc2paper.co.uk/lettercustomerapi.svc/json/"
 	
+	/// Initialize Letter API operation.
+	///
+	/// - Parameter request: `LetterAPIRequest`
 	public init(request: RequestModel) {
 		self.request = request
 	}
 	
+	/// Performs the receiver’s asynchronous task.
 	override public func main() {
 		super.main()
+		
+		completionBlock?()
 		
 		guard let internalRequest = request as? _LetterAPIRequest else {
 			self.finish(result: .failed(ApiError.unexpectedError))
@@ -35,7 +46,7 @@ public class LetterAPIOperation<RequestModel: LetterAPIRequest>: AsynchronousOpe
 		
 		// Make URL Request
 		let urlString = endpoint + internalRequest.requestString
-		print(urlString)
+//		print(urlString)
 		guard let url = URL(string: urlString) else {
 			self.finish(result: .failed(ApiError.unexpectedError))
 			return

@@ -22,7 +22,7 @@ let password = "testpassword"
 //	PlaygroundPage.current.finishExecution()
 //}
 
-CountriesList().fetch { result in
+CountriesList.fetch { result in
 	switch result {
 	case .succeed(let answer):
 		print(answer.countries[2])

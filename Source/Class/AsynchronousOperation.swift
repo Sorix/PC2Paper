@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Subclass of `Operation` that add support of asynchronous operations.
+/// Subclass of `Operation` that adds support of asynchronous operations.
 /// ## How to use:
 /// 1. Call `super.main()` when override `main` method, call `super.start()` when override `start` method.
 /// 2. When operation is finished or cancelled set `self.state = .finished`

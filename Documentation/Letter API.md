@@ -1,2 +1,3 @@
-### List of requests
-* [Letter API](Postage Options.html)
+### Requests to Letter API
+* [Upload Document](Upload Document.html)
+* [Submit Letter](Submit Letter.html)

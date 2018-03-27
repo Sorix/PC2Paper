@@ -8,19 +8,27 @@
 
 import Foundation
 
+/// Asynchronous operation with request to PC2Paper's Pricing API. You can use operation directly or through calling `PricingAPI.make(...)` closure.
 public class PricingAPIOperation<RequestModel: PricingAPIRequest>: AsynchronousOperation {
 	
 	public let request: RequestModel
 	
+	/// Requests made through `URLSession`, you can specify session configuration here if you want (e.g. for background operations).
 	public var sessionConfig = URLSessionConfiguration.default
+	
+	/// The block to execute after the operation is completed.
 	public var fetchCompletionBlock: ((Result<RequestModel.AnswerModel>) -> Void)?
 	
 	private let endpoint = "https://www.pc2paper.co.uk/"
 	
+	/// Initialize Letter API operation.
+	///
+	/// - Parameter request: `PricingAPIRequest`
 	public init(request: RequestModel) {
 		self.request = request
 	}
 	
+	/// Performs the receiver’s asynchronous task.
 	override public func main() {
 		super.main()
 		
@@ -32,7 +40,7 @@ public class PricingAPIOperation<RequestModel: PricingAPIRequest>: AsynchronousO
 		
 		// Make URL Request
 		let urlString = endpoint + internalRequest.requestString
-		print(urlString)
+//		print(urlString)
 		guard let url = URL(string: urlString) else {
 			fetchCompletionBlock?(.failed(ApiError.unexpectedError))
 			state = .finished

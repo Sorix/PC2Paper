@@ -8,13 +8,16 @@
 
 import Foundation
 
+/// Class that can be used to fetch list of possible destination and origin countries with ID and names.
 public class CountriesList {
 
-	private let endpoint = URL(string: "https://www.pc2paper.co.uk/downloads/country.csv")!
-	
-	public init() {}
-	
-	public func fetch(sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default, completion: @escaping (Result<CountriesAnswer>) -> Void) {
+	private static let endpoint = URL(string: "https://www.pc2paper.co.uk/downloads/country.csv")!
+
+	/// Fetch list of countries.
+	///
+	/// - Parameters:
+	///   - sessionConfig: request made through `URLSession`, you can specify session configuration here if you want (e.g. for background operations).
+	public static func fetch(sessionConfig: URLSessionConfiguration = URLSessionConfiguration.default, completion: @escaping (Result<CountriesAnswer>) -> Void) {
 		
 		var urlRequest = URLRequest(url: endpoint)
 		urlRequest.httpMethod = "GET"

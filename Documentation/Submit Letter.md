@@ -41,7 +41,7 @@ let request = SubmitLetterForPostingRequest(body: requestBody)
 Now we have ready request and we can send it via API.
 
 ```swift
-PC2Paper().make(request: request) { result in
+LetterAPI.make(request: request) { result in
 	switch result {
 	case .succeed(let answer):
 		// Answer is `SubmitLetterForPostingAnswer`
