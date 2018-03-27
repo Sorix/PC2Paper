@@ -22,13 +22,7 @@ address.postCode = "420000"
 Now we can construct letter's header.
 
 ```swift
-var letter = SubmitLetterForPostingRequestBody.Letter(sourceClient: "My app name",
-													  addresses: [receiverAddress],
-													  receiverCountryCode: 1,
-													  postage: 1,
-													  paper: 1,
-													  envelope: 1,
-													  extras: 1)
+var letter = SubmitLetterForPostingRequestBody.Letter(sourceClient: "My app name", addresses: [receiverAddress], receiverCountryCode: 1, postage: 1, paper: 1, envelope: 1, extras: 1)
 
 letter.letterBody = "Hello, John! See you later."
 ```
