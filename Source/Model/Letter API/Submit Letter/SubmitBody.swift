@@ -9,7 +9,7 @@
 import Foundation
 
 /// Body with letter information
-public class SubmitLetterForPostingRequestBody: RequestBody {
+public struct SubmitLetterForPostingRequestBody: RequestBody {
 
 	public var letterForPosting: Letter
 	
@@ -34,7 +34,7 @@ extension SubmitLetterForPostingRequestBody {
 	// MARK: - Models
 	
 	/// Letter body
-	public class Letter: Encodable {
+	public struct Letter: Encodable {
 		
 		/// This is the name of your application so we can identify it if PC2Paper find any problems
 		public var sourceClient: String
@@ -59,7 +59,7 @@ extension SubmitLetterForPostingRequestBody {
 		/// This is where you can write your letter. It can be formated HTMl or left blank if you would rather just attach a PDF to your letter. You can also have both options at once.
 		public var letterBody: String?
 		
-		/// Look at `Sender` object
+		/// Look at `Sender` struct
 		public var sender: Sender?
 		
 		/// This is your own reference number that be used for your own tracking purposes or admin. Perhaps from you rown CRM system.
@@ -88,7 +88,7 @@ extension SubmitLetterForPostingRequestBody.Letter {
 
 	// MARK: Models
 	
-	public class Address: Encodable {
+	public struct Address: Encodable {
 		
 		enum CodingKeys: String, CodingKey {
 			case name = "ReceiverName"
@@ -109,7 +109,7 @@ extension SubmitLetterForPostingRequestBody.Letter {
 		public init() { }
 	}
 	
-	public class Sender {
+	public struct Sender {
 		
 		/// This is your return address. Each line can be seperated by a line break.
 		public var address: String
