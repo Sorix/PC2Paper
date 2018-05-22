@@ -12,7 +12,6 @@ let package = Package(
 		],
 	targets: [
 		.target(name: "PC2Paper", dependencies: ["SWXMLHash"], path: "Source")
-		.target(name: "PC2Paper", path: "Source")
 	]
 )
 
